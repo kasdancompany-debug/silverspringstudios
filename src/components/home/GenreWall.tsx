@@ -48,6 +48,11 @@ export function GenreWall() {
     setOffset((prev) => Math.min(Math.max(0, prev), nextMax));
   }, []);
 
+  const clamp = useCallback(
+    (value: number) => Math.min(Math.max(0, value), maxOffset),
+    [maxOffset],
+  );
+
   useEffect(() => {
     measure();
     const viewport = viewportRef.current;
@@ -63,10 +68,20 @@ export function GenreWall() {
     };
   }, [measure]);
 
-  const clamp = useCallback(
-    (value: number) => Math.min(Math.max(0, value), maxOffset),
-    [maxOffset],
-  );
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (maxOffset <= 0) return;
+      const mostlyHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+      const delta = mostlyHorizontal ? e.deltaX : e.deltaY;
+      if (Math.abs(delta) < 1) return;
+      e.preventDefault();
+      setOffset((prev) => clamp(prev + delta));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [clamp, maxOffset]);
 
   const step = (dir: -1 | 1) => {
     const viewport = viewportRef.current;
@@ -103,15 +118,6 @@ export function GenreWall() {
     } catch {
       /* already released */
     }
-  };
-
-  const onWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    if (maxOffset <= 0) return;
-    const mostlyHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
-    const delta = mostlyHorizontal ? e.deltaX : e.deltaY;
-    if (Math.abs(delta) < 1) return;
-    e.preventDefault();
-    setOffset((prev) => clamp(prev + delta));
   };
 
   const canPrev = offset > 2;
@@ -188,7 +194,6 @@ export function GenreWall() {
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerCancel={endDrag}
-          onWheel={onWheel}
           className={cn(
             "overflow-hidden px-4 touch-pan-y md:px-8 lg:px-10",
             dragging ? "cursor-grabbing select-none" : "cursor-grab",
