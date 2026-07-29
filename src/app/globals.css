@@ -8,10 +8,10 @@
   --chalk: #f7f6f2;
   --slate: #8e8e8a;
   --silver: #c9c9c4;
-  /* Spring mercury — distinctive, not purple / terracotta / forest-default */
-  --signal: #5ce1e6;
-  --signal-dim: #2a9ea3;
-  --flare: #e8ff6a;
+  /* Neon flare — hot pink punch (Neon / Wild Eye energy), not soft cyan SaaS */
+  --signal: #ff2d6a;
+  --signal-dim: #c4184e;
+  --flare: #f5ff3d;
   --line: rgba(243, 241, 234, 0.12);
   --line-strong: rgba(243, 241, 234, 0.28);
   --line-ink: rgba(5, 5, 5, 0.12);
@@ -73,7 +73,7 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--signal) 55%, transparent);
+    background: color-mix(in srgb, var(--signal) 70%, transparent);
     color: var(--void);
   }
 
@@ -179,7 +179,7 @@
     background: linear-gradient(90deg, transparent, var(--line-ink-strong), transparent);
   }
 
-  /* Anamorphic light leak / lens atmosphere */
+  /* Full-bleed media plane */
   .cine-field {
     position: relative;
     isolation: isolate;
@@ -187,33 +187,19 @@
     background: var(--void);
   }
 
-  .cine-field::before {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: -20%;
-    z-index: 0;
+  .media-scrim {
     background:
-      radial-gradient(ellipse 55% 40% at 18% 72%, rgba(92, 225, 230, 0.18), transparent 60%),
-      radial-gradient(ellipse 45% 35% at 88% 18%, rgba(232, 255, 106, 0.08), transparent 55%),
-      radial-gradient(ellipse 80% 50% at 50% 110%, rgba(42, 158, 163, 0.2), transparent 50%),
-      linear-gradient(180deg, #050505 0%, #0a0a0a 45%, #000 100%);
+      linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 35%, rgba(0, 0, 0, 0.75) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, transparent 45%);
   }
 
-  .cine-field::after {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    opacity: 0.35;
+  .poster-scrim {
     background: linear-gradient(
-      105deg,
-      transparent 35%,
-      rgba(255, 255, 255, 0.03) 48%,
-      transparent 58%
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.25) 40%,
+      rgba(0, 0, 0, 0.92) 100%
     );
-    mix-blend-mode: screen;
   }
 
   .film-grain {

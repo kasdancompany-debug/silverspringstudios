@@ -16,8 +16,7 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 72px",
-          background:
-            "radial-gradient(ellipse 55% 45% at 12% 88%, rgba(92,225,230,0.22), transparent 55%), radial-gradient(ellipse 40% 35% at 90% 12%, rgba(232,255,106,0.1), transparent 50%), linear-gradient(180deg, #050505 0%, #000000 100%)",
+          background: "linear-gradient(180deg, #111 0%, #000 100%)",
           color: "#F3F1EA",
           fontFamily: "Impact, 'Arial Narrow', Helvetica, sans-serif",
         }}
@@ -25,9 +24,9 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           <div
             style={{
-              fontSize: 72,
-              lineHeight: 0.9,
-              letterSpacing: "0.04em",
+              fontSize: 84,
+              lineHeight: 0.88,
+              letterSpacing: "0.02em",
               textTransform: "uppercase",
             }}
           >
@@ -38,7 +37,7 @@ export default function OpenGraphImage() {
               fontSize: 22,
               letterSpacing: "0.42em",
               textTransform: "uppercase",
-              color: "#5CE1E6",
+              color: "#FF2D6A",
               fontFamily: "Helvetica, Arial, sans-serif",
             }}
           >
@@ -63,7 +62,6 @@ export default function OpenGraphImage() {
               fontSize: 24,
               color: "#8E8E8A",
               fontFamily: "Helvetica, Arial, sans-serif",
-              letterSpacing: "0.02em",
             }}
           >
             Boutique independent film distribution — selective partnerships, transparent terms.

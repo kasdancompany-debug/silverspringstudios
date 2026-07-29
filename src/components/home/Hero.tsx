@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
@@ -9,60 +10,52 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="cine-field film-grain relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-28 md:pb-20 md:pt-24">
-      {/* Drift light — intentional motion #1 */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -left-1/4 top-[20%] z-[1] h-[50vh] w-[65vw] rounded-full bg-signal/15 blur-3xl"
-        animate={
-          reduceMotion
-            ? { opacity: 0.45 }
-            : { x: [0, 48, 0], y: [0, -28, 0], opacity: [0.3, 0.55, 0.3] }
-        }
-        transition={
-          reduceMotion ? { duration: 0 } : { duration: 16, repeat: Infinity, ease: "easeInOut" }
-        }
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -right-1/5 bottom-[10%] z-[1] h-[40vh] w-[50vw] rounded-full bg-flare/10 blur-3xl"
-        animate={
-          reduceMotion
-            ? { opacity: 0.25 }
-            : { x: [0, -32, 0], y: [0, 20, 0], opacity: [0.15, 0.35, 0.15] }
-        }
-        transition={
-          reduceMotion ? { duration: 0 } : { duration: 20, repeat: Infinity, ease: "easeInOut" }
-        }
-      />
-
-      <div className="container-page relative z-[2] w-full">
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-void">
+      {/* Full-bleed cinema still — the actual visual idea */}
+      <div className="absolute inset-0">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+          className="absolute inset-0"
+          initial={reduceMotion ? false : { scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.8, ease }}
+        >
+          <Image
+            src="/brand/hero.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
+        <div aria-hidden className="media-scrim absolute inset-0" />
+        <div aria-hidden className="film-grain absolute inset-0" />
+      </div>
+
+      <div className="container-page relative z-[2] w-full pb-10 pt-32 md:pb-14 md:pt-28">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease }}
-          className="max-w-5xl"
+          transition={{ duration: 0.85, ease, delay: 0.15 }}
+          className="max-w-6xl"
         >
           <p className="credit text-signal">Independent Film Distribution</p>
 
-          {/* Brand as hero-level signal — not just nav */}
-          <h1 className="mt-6 font-impact text-[clamp(3.5rem,14vw,9.5rem)] leading-[0.85] tracking-[0.02em] text-ivory">
+          <h1 className="mt-3 font-impact text-[clamp(4.5rem,18vw,12rem)] leading-[0.8] tracking-[0.01em] text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.65)]">
             Silver
             <br />
             Spring
-            <span className="mt-2 block text-[0.28em] tracking-[0.42em] text-signal">Studios</span>
           </h1>
-
-          <p className="mt-8 max-w-xl font-display text-2xl leading-snug text-ivory md:text-3xl lg:text-[2.15rem]">
-            Independent films deserve a real release.
+          <p className="mt-3 font-sans text-[0.75rem] uppercase tracking-[0.55em] text-signal md:text-[0.9rem]">
+            Studios
           </p>
 
-          <p className="mt-6 max-w-lg text-[0.95rem] leading-relaxed text-slate md:text-base">
-            Boutique distribution for completed features. We invest in packaging and publicity —
-            recouped from film receipts, not billed to you — then share what remains.
+          <p className="mt-7 max-w-xl font-display text-[1.75rem] leading-[1.12] text-white md:text-3xl lg:text-[2.5rem]">
+            Independent films deserve a{" "}
+            <em className="not-italic text-signal">real release.</em>
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <ButtonLink href="/submit" variant="signal" size="lg">
               Submit Your Film
             </ButtonLink>
@@ -71,7 +64,7 @@ export function Hero() {
             </ButtonLink>
           </div>
 
-          <p className="mt-8 credit text-slate/60">
+          <p className="mt-8 credit text-ivory/55">
             Submissions open · No fee · Selective consideration
           </p>
         </motion.div>

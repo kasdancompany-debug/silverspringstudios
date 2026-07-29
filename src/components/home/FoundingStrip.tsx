@@ -2,19 +2,11 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export function FoundingStrip() {
   return (
-    <section className="relative overflow-hidden border-y border-line bg-surface py-20 md:py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-60"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 80% at 90% 50%, rgba(92, 225, 230, 0.12), transparent 55%)",
-        }}
-      />
+    <section className="relative overflow-hidden border-y border-line bg-void py-20 md:py-24">
       <div className="container-page relative z-[1] grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16">
         <div>
           <p className="credit text-flare">Founding Slate</p>
-          <h2 className="mt-4 font-impact text-[clamp(2.25rem,6vw,4rem)] text-ivory">
+          <h2 className="mt-4 font-impact text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.92] text-ivory">
             Building in public.
             <br />
             Title by title.

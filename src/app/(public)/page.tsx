@@ -32,8 +32,8 @@ export default function HomePage() {
       />
       <Hero />
       <StatementMarquee />
-      <ModelSection />
       <GenreWall />
+      <ModelSection />
       <ApproachNumerals />
       <FoundingStrip />
       <FAQ />
