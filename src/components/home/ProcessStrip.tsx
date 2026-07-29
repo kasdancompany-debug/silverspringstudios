@@ -7,22 +7,22 @@ const STEPS = [
   {
     n: "01",
     title: "Submit",
-    body: "Share the film, rights position and a private screener. Free. Creates no agreement.",
+    body: "Provide film details, rights information, and a private screener. There is no submission fee.",
   },
   {
     n: "02",
     title: "Review",
-    body: "We watch, check rights readiness and ask whether the film has a real audience path.",
+    body: "Our acquisitions team evaluates the work, materials, rights position, and release fit.",
   },
   {
     n: "03",
-    title: "Discuss",
-    body: "Promising titles get a direct conversation on strategy, expectations and terms.",
+    title: "Discussion",
+    body: "Projects under serious consideration receive a direct conversation on strategy and terms.",
   },
   {
     n: "04",
     title: "Agreement",
-    body: "A release starts only after both sides review and sign a written distribution agreement.",
+    body: "Distribution begins only after both parties execute a written agreement.",
   },
 ] as const;
 
@@ -34,15 +34,15 @@ export function ProcessStrip() {
       <div className="container-page">
         <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="credit text-signal">The Path</p>
-            <h2 className="mt-4 font-impact text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.92] text-ivory">
-              Four steps.
+            <p className="credit text-signal">Process</p>
+            <h2 className="mt-4 font-impact text-[clamp(2.5rem,7vw,4.25rem)] leading-[0.92] text-ivory">
+              From submission
               <br />
-              No black hole.
+              to agreement.
             </h2>
             <p className="mt-5 max-w-lg text-[0.95rem] leading-relaxed text-slate">
-            Selective at every stage. Submission never creates a deal. We prepare streaming and
-            digital releases — a signed agreement is the only start line.
+              Acquisition is selective at every stage. Submission does not create a distribution
+              relationship.
             </p>
           </div>
           <ButtonLink href="/how-it-works" variant="secondary" className="shrink-0 self-start">

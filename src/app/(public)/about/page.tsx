@@ -43,33 +43,33 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Company"
         title="About Silver Spring Studios"
-        description="A selective digital distribution partner for filmmakers who have finished a film and want it packaged properly for streaming — not dumped into a queue looking unfinished."
+        description="An independent film distributor focused on selective digital and streaming releases — partnering with filmmakers who bring finished work, clear intention, and respect for how films find audiences online."
       />
 
       <Section tone="elevated">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
             <SectionHeader
-              eyebrow="Our story"
-              title="Built for streaming releases that look intentional"
-              description="Silver Spring Studios started from a practical problem: many strong independent films finish production and then land on platforms with weak key art, thin trailers and no clear positioning — or get asked to finance marketing they cannot afford."
+              eyebrow="Our work"
+              title="Distribution with professional presentation"
+              description="Silver Spring Studios acquires completed independent features, documentaries, and limited series for digital and streaming release. We invest in packaging appropriate to each title and structure terms so filmmakers understand recoupment and participation before they sign."
             />
             <div className="space-y-5 text-base leading-relaxed text-slate">
               <p>
-                We occupy a narrow space: selective partnerships with completed features,
-                documentaries and limited series for digital and streaming release. We invest in
-                packaging — poster and trailer/publicity support — and recover that investment from
-                film receipts, not from an upfront invoice to the filmmaker.
+                Many strong films finish production and then reach platforms with weak key art, thin
+                trailers, or no clear positioning — or face distribution options that demand upfront
+                marketing fees. We offer a narrower path: selective partnership, invested packaging,
+                and recovery of that investment from film receipts.
               </p>
               <p>
-                Our focus is Canada, the United States and English-language international work with
-                clear subtitle and rights pathways. We are small by design — large enough to prepare
-                releases carefully, small enough that submissions are read by people who can respond.
+                Our focus is Canada, the United States, and English-language international work with
+                clear rights pathways. We are small by design: careful with each title, direct with
+                filmmakers, and honest about what digital release can and cannot promise.
               </p>
               <p>
-                We are not a theatrical distributor, a volume aggregator or a festival brand
-                extension. We are an acquisitions-led digital release partner for filmmakers who
-                value clarity, packaging craft and honest expectations.
+                We are not a theatrical distributor or a volume aggregator. We are an
+                acquisitions-led release company for filmmakers who take their work — and its
+                presentation — seriously.
               </p>
             </div>
           </div>
@@ -79,20 +79,27 @@ export default function AboutPage() {
             <dl className="mt-8 space-y-6">
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Focus</dt>
-                <dd className="mt-2 text-sm text-ivory">Streaming & digital release for completed features, docs, limited series</dd>
+                <dd className="mt-2 text-sm text-ivory">
+                  Digital and streaming release for completed features, documentaries, and limited
+                  series
+                </dd>
               </div>
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Territories</dt>
-                <dd className="mt-2 text-sm text-ivory">Canada, United States, English-language international</dd>
+                <dd className="mt-2 text-sm text-ivory">
+                  Canada, United States, English-language international
+                </dd>
               </div>
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Approach</dt>
-                <dd className="mt-2 text-sm text-ivory">Selective partnerships with invested packaging support</dd>
+                <dd className="mt-2 text-sm text-ivory">
+                  Selective partnerships with professional packaging support
+                </dd>
               </div>
               <div>
-                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core offer</dt>
+                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Positioning</dt>
                 <dd className="mt-2 font-display text-xl text-signal">
-                  Streaming releases with real packaging.
+                  Independent film. Digital distribution.
                 </dd>
               </div>
             </dl>

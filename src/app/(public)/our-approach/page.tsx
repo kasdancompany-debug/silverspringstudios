@@ -89,8 +89,8 @@ export default function OurApproachPage() {
 
       <PageHero
         eyebrow="Our Approach"
-        title="Digital releases, packaged with intent"
-        description="Silver Spring Studios is a young company. We don't have a decade of titles to point to, and we won't pretend otherwise. What we have is a clear offer: selective streaming and digital releases with poster, trailer and positioning treated as part of the job — not an afterthought upload."
+        title="A selective digital distributor"
+        description="Silver Spring Studios acquires completed independent films for streaming and digital release. We are building our slate carefully — with professional packaging, transparent economics, and direct engagement with filmmakers who take their work seriously."
       />
 
       <Section tone="elevated">
@@ -98,21 +98,20 @@ export default function OurApproachPage() {
           <div>
             <SectionHeader
               eyebrow="Why we exist"
-              title="Finished films still look unfinished online"
-              description="Too many capable independent films reach streaming with weak key art, a rushed trailer and no clear positioning — not because the film failed, but because the packaging did."
+              title="Finished films still need proper presentation"
+              description="Capable independent films too often reach digital platforms with weak key art, rushed trailers, or no clear positioning — not because the film failed, but because the release was underprepared."
             />
             <div className="space-y-5 text-base leading-relaxed text-slate">
               <p>
-                On platforms, the poster and trailer often decide whether anyone presses play. We
-                built Silver Spring Studios to invest in that packaging for selected titles — then
-                recover the cost from the film&apos;s own receipts, not from an upfront invoice to
-                the filmmaker.
+                On streaming platforms, key art and trailer often determine whether a title is
+                watched. Silver Spring Studios invests in that presentation for selected titles,
+                then recovers the agreed packaging investment from the film&apos;s own receipts —
+                not through an upfront invoice to the filmmaker.
               </p>
               <p>
-                Filmmakers are often offered a self-serve upload with no campaign, or a boutique
-                deal that asks them to pay for marketing upfront. We occupy a different space:
-                selective digital distribution, invested packaging, transparent recoupment, and
-                honest limits about what streaming can and cannot promise.
+                We offer selective digital distribution: careful acquisition, packaging scoped to
+                the film, and terms that are explained before anyone signs. We do not invent a
+                catalogue or promise outcomes we cannot control.
               </p>
             </div>
           </div>
@@ -141,9 +140,9 @@ export default function OurApproachPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core offer</dt>
+                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Positioning</dt>
                 <dd className="mt-2 font-display text-xl text-signal">
-                  Streaming releases with real packaging.
+                  Independent film. Digital distribution.
                 </dd>
               </div>
             </dl>

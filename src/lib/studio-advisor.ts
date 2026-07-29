@@ -1,25 +1,16 @@
-/** Studio advisor defaults — public conversion path & operating promises. */
+/** Public conversion defaults — tone: professional distributor, not startup pitch. */
 export const STUDIO_ADVISOR = {
-  /** Educate first; submit after model/process. Better slate quality > form spam. */
   heroPrimaryCta: {
     href: "/#model",
-    label: "Understand the Model",
+    label: "Our Model",
   },
   heroSecondaryCta: {
     href: "/submit",
-    label: "Submit Your Film",
+    label: "Submit a Film",
   },
-  /**
-   * Operational aim only — not a guarantee. Keep staffing able to hit this.
-   * Change here if capacity changes.
-   */
   responseAimDays: 14,
-  responseAimLabel: "We aim to respond within 14 days",
-  deskLabel: "Acquisitions desk",
+  responseAimLabel: "Response within approximately 14 days",
+  deskLabel: "Acquisitions",
   deskBlurb:
-    "We review completed features for digital and streaming release — packaging first, platforms second, no theatrical fantasy.",
-  positioning: {
-    channel: "streaming and digital platforms",
-    promise: "A finished film should look intentional on the platforms where people actually watch.",
-  },
+    "We review completed features for selective digital and streaming release — with attention to craft, audience, and presentation.",
 } as const;

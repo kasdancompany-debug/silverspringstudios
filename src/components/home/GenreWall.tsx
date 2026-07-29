@@ -21,14 +21,14 @@ export function GenreWall() {
     <section className="relative overflow-hidden bg-void py-16 md:py-24">
       <div className="container-page mb-10 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <p className="credit text-signal">Acquisition Focus</p>
-          <h2 className="mt-3 font-impact text-[clamp(2.75rem,8vw,5rem)] text-ivory">
-            What we chase.
-          </h2>
-          <p className="mt-4 max-w-lg text-[0.95rem] leading-relaxed text-slate">
-            Completed work with clear genre positioning. Hover a lane — this is atmosphere, not a
-            catalogue of invented titles.
-          </p>
+            <p className="credit text-signal">Acquisition Focus</p>
+            <h2 className="mt-3 font-impact text-[clamp(2.75rem,8vw,4.5rem)] text-ivory">
+              Genres we acquire.
+            </h2>
+            <p className="mt-4 max-w-lg text-[0.95rem] leading-relaxed text-slate">
+              Completed work with clear genre positioning and an identifiable audience. Distinctive
+              projects outside these categories may also be considered.
+            </p>
         </div>
         <Link
           href="/checklist"

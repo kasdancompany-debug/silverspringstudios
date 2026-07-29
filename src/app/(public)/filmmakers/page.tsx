@@ -76,14 +76,14 @@ export default function FilmmakersPage() {
       <PageHero
         eyebrow="Partnership"
         title="For filmmakers"
-        description="Finished a film and want it on streaming looking intentional — not dumped onto platforms with weak key art? We invest in packaging with you, recover that from film receipts, and never send an upfront release invoice for the agreed packaging work."
+        description="For independent filmmakers with completed work and serious release intentions — selective digital distribution with professional packaging and clear written terms."
       />
 
       <Section tone="elevated">
         <SectionHeader
           eyebrow="The model"
-          title="We package before platforms earn"
-          description="Selected films may receive professional packaging support without an upfront charge to the filmmaker. Scope, creative direction and budget are set per title — then written into the agreement."
+          title="Packaging invested in the release"
+          description="Selected films may receive professional packaging support without an upfront charge to the filmmaker. Scope and budget are agreed per title and set out in the distribution agreement."
         />
 
         <div className="grid gap-10 lg:grid-cols-2">

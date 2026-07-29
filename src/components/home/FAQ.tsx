@@ -78,11 +78,11 @@ export function FAQ({ limit }: { limit?: number }) {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <CreditLine>Questions</CreditLine>
           <h2 className="mt-5 font-impact text-[clamp(2.25rem,6vw,3.75rem)] tracking-[0.02em] text-ivory">
-            Clear answers.
+            Questions.
           </h2>
           <p className="mt-6 max-w-sm text-[0.95rem] leading-[1.75] text-slate">
-            Submission, investment, rights and reporting — without the spin. Final terms always live
-            in the signed agreement.
+            Submission, investment, rights, and reporting. Final terms are governed by the signed
+            distribution agreement.
           </p>
         </div>
 

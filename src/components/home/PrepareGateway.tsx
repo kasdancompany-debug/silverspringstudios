@@ -2,22 +2,22 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 const PREP = [
   {
-    title: "Readiness checklist",
-    body: "Rights, screener, deliverables and expectations — audit before you apply.",
+    title: "Submission checklist",
+    body: "Rights, screener, deliverables, and release expectations — reviewed before you apply.",
     href: "/checklist",
-    cta: "Open Checklist",
+    cta: "View Checklist",
   },
   {
     title: "What we look for",
-    body: "Genre lanes, craft signals and what does not decide an acquisition alone.",
+    body: "Genre focus, craft, and commercial clarity — and what does not decide an acquisition alone.",
     href: "/what-we-look-for",
-    cta: "Self-Qualify",
+    cta: "Read Criteria",
   },
   {
-    title: "How the money works",
-    body: "Investment, recoupment and the split — in plain language before you submit.",
+    title: "For filmmakers",
+    body: "How packaging investment, recoupment, and participation work under our distribution model.",
     href: "/filmmakers",
-    cta: "Filmmaker Economics",
+    cta: "Read More",
   },
 ] as const;
 
@@ -26,15 +26,15 @@ export function PrepareGateway() {
     <section id="prepare" className="relative bg-ink py-20 md:py-28">
       <div className="container-page">
         <div className="mb-12 max-w-2xl">
-          <p className="credit text-flare">Prepare</p>
-          <h2 className="mt-4 font-impact text-[clamp(2.5rem,7vw,4.25rem)] leading-[0.92] text-ivory">
-            Come ready.
+          <p className="credit text-signal">Resources</p>
+          <h2 className="mt-4 font-impact text-[clamp(2.5rem,7vw,4rem)] leading-[0.92] text-ivory">
+            Prepare a
             <br />
-            <span className="text-signal">Move faster.</span>
+            complete submission.
           </h2>
           <p className="mt-5 text-[0.95rem] leading-relaxed text-slate">
-            Strong submissions are complete submissions. Use these before you hit send — fewer
-            delays, clearer conversations, better odds of a serious look.
+            Filmmakers who arrive with clear rights, a finished picture, and realistic release goals
+            receive a faster and more serious review.
           </p>
         </div>
 
@@ -57,10 +57,11 @@ export function PrepareGateway() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-xl text-sm text-slate">
-            Ready with a finished feature, clear rights and a private screener?
+            Completed feature, documentary, or limited series with clear rights and a private
+            screener.
           </p>
           <ButtonLink href="/submit" variant="signal" size="lg">
-            Submit Your Film
+            Submit a Film
           </ButtonLink>
         </div>
       </div>

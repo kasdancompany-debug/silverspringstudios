@@ -1,10 +1,10 @@
 const STATEMENTS = [
-  "Streaming & digital releases",
-  "Poster + trailer packaging invested",
-  "No upfront release invoice",
-  "Recouped from film receipts",
-  "Selective partnerships",
-  "Platform look that matches the film",
+  "Independent film distribution",
+  "Digital & streaming release",
+  "Professional packaging",
+  "Selective acquisition",
+  "Transparent terms",
+  "Completed features",
 ];
 
 export function StatementMarquee() {
@@ -12,7 +12,7 @@ export function StatementMarquee() {
 
   return (
     <section
-      aria-label="Studio principles"
+      aria-label="Studio focus"
       className="overflow-hidden border-y border-line bg-void py-4 md:py-5"
     >
       <div className="flex w-max marquee-track">

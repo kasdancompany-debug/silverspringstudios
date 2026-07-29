@@ -37,9 +37,9 @@ export function Hero() {
           initial={reduceMotion ? false : { opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease, delay: 0.15 }}
-          className="max-w-6xl"
+          className="max-w-5xl"
         >
-          <p className="credit text-signal">Digital & Streaming Distribution</p>
+          <p className="credit text-signal">Independent Film Distribution</p>
 
           <h1 className="mt-3 font-impact text-[clamp(4.5rem,18vw,12rem)] leading-[0.8] tracking-[0.01em] text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.65)]">
             Silver
@@ -50,15 +50,13 @@ export function Hero() {
             Studios
           </p>
 
-          <p className="mt-7 max-w-xl font-display text-[1.75rem] leading-[1.12] text-white md:text-3xl lg:text-[2.5rem]">
-            Streaming releases with{" "}
-            <em className="not-italic text-signal">real packaging.</em>
+          <p className="mt-8 max-w-2xl font-display text-[1.65rem] leading-[1.15] text-white md:text-3xl lg:text-[2.35rem]">
+            Digital distribution for independent filmmakers with vision and intention.
           </p>
 
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-silver md:text-[0.95rem]">
-            We help finished independent films look intentional on streaming platforms — poster,
-            trailer and positioning invested with you, recovered from film receipts. Digital
-            release only.
+          <p className="mt-5 max-w-lg text-sm leading-relaxed text-silver md:text-[0.95rem]">
+            We acquire completed features for selective streaming and digital release — with
+            professional packaging, clear economics, and respect for the work.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -71,7 +69,7 @@ export function Hero() {
           </div>
 
           <p className="mt-8 credit text-ivory/55">
-            Submissions open · No fee · {STUDIO_ADVISOR.responseAimLabel}
+            Submissions open · No submission fee · {STUDIO_ADVISOR.responseAimLabel}
           </p>
         </motion.div>
       </div>

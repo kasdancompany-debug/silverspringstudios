@@ -40,12 +40,11 @@ export function Footer() {
           <div className="max-w-md space-y-8">
             <Wordmark size="md" />
             <p className="font-display text-2xl leading-snug text-ivory md:text-3xl">
-              Streaming releases with real packaging.
+              Independent film. Digital distribution.
             </p>
             <p className="text-sm leading-relaxed text-slate">
-              Selective digital distribution for completed features — poster and trailer support
-              invested upfront, recovered from film receipts. No theatrical model. No invented
-              catalogue.
+              Selective acquisition of completed features for streaming and digital release —
+              professional packaging, clear terms, and respect for filmmakers with serious intent.
             </p>
             <a
               href={`mailto:${SITE.email}`}

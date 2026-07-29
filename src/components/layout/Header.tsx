@@ -54,7 +54,7 @@ export function Header() {
             </Link>
           ))}
           <ButtonLink href="/submit" size="sm" variant="signal">
-            Submit Film
+            Submit
           </ButtonLink>
         </nav>
 
@@ -84,7 +84,7 @@ export function Header() {
               </Link>
             ))}
             <ButtonLink href="/submit" variant="signal" onClick={() => setOpen(false)}>
-              Submit Film
+              Submit a Film
             </ButtonLink>
           </nav>
         </div>
