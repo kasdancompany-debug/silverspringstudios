@@ -68,8 +68,9 @@ function FaqItem({
   );
 }
 
-export function FAQ() {
+export function FAQ({ limit }: { limit?: number }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const items = typeof limit === "number" ? faqItems.slice(0, limit) : faqItems;
 
   return (
     <Section id="faq" tone="dark">
@@ -77,16 +78,16 @@ export function FAQ() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <CreditLine>Questions</CreditLine>
           <h2 className="mt-5 font-impact text-[clamp(2.25rem,6vw,3.75rem)] tracking-[0.02em] text-ivory">
-            Frequently asked questions.
+            Clear answers.
           </h2>
           <p className="mt-6 max-w-sm text-[0.95rem] leading-[1.75] text-slate">
-            Clear answers about submission, investment, rights and reporting. Final terms for
-            any accepted project are always governed by the signed distribution agreement.
+            Submission, investment, rights and reporting — without the spin. Final terms always live
+            in the signed agreement.
           </p>
         </div>
 
         <div className="border-b border-line">
-          {faqItems.map((item, index) => (
+          {items.map((item, index) => (
             <FaqItem
               key={item.question}
               item={item}

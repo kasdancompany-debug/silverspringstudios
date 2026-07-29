@@ -75,11 +75,11 @@ export function ModelSection() {
             placement and revenue are never guaranteed.
           </p>
 
-          <div className="mt-10">
-            <ButtonLink href="/how-it-works" variant="secondary">
-              How It Works
-            </ButtonLink>
-          </div>
+            <div className="mt-10">
+              <ButtonLink href="/#process" variant="secondary">
+                How the Process Works
+              </ButtonLink>
+            </div>
         </motion.div>
       </div>
     </section>

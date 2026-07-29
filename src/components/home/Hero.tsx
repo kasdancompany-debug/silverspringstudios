@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { STUDIO_ADVISOR } from "@/lib/studio-advisor";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -11,7 +12,6 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-void">
-      {/* Full-bleed cinema still — the actual visual idea */}
       <div className="absolute inset-0">
         <motion.div
           className="absolute inset-0"
@@ -55,17 +55,22 @@ export function Hero() {
             <em className="not-italic text-signal">real release.</em>
           </p>
 
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-silver md:text-[0.95rem]">
+            Boutique distribution for completed features — invested packaging, transparent
+            economics, selective partnerships.
+          </p>
+
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/submit" variant="signal" size="lg">
-              Submit Your Film
+            <ButtonLink href={STUDIO_ADVISOR.heroPrimaryCta.href} variant="signal" size="lg">
+              {STUDIO_ADVISOR.heroPrimaryCta.label}
             </ButtonLink>
-            <ButtonLink href="/our-approach" variant="secondary" size="lg">
-              Our Approach
+            <ButtonLink href={STUDIO_ADVISOR.heroSecondaryCta.href} variant="secondary" size="lg">
+              {STUDIO_ADVISOR.heroSecondaryCta.label}
             </ButtonLink>
           </div>
 
           <p className="mt-8 credit text-ivory/55">
-            Submissions open · No fee · Selective consideration
+            Submissions open · No fee · {STUDIO_ADVISOR.responseAimLabel}
           </p>
         </motion.div>
       </div>

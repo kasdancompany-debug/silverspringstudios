@@ -8,12 +8,12 @@ import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
-/** Lean primary nav — A24/Neon style. Full sitemap lives in the footer. */
+/** Advisor nav: path over catalogue. Resources demoted until articles publish. */
 const PRIMARY_LINKS = [
-  { href: "/our-approach", label: "Approach" },
+  { href: "/how-it-works", label: "Process" },
   { href: "/filmmakers", label: "Filmmakers" },
-  { href: "/resources", label: "Resources" },
-  { href: "/about", label: "About" },
+  { href: "/our-approach", label: "Approach" },
+  { href: "/checklist", label: "Checklist" },
 ] as const;
 
 export function Header() {

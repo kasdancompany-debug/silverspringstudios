@@ -2,6 +2,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { BreadcrumbJsonLd, createMetadata } from "@/components/seo/metadata";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { STUDIO_ADVISOR } from "@/lib/studio-advisor";
 
 export const metadata = createMetadata({
   title: "How It Works",
@@ -73,7 +74,7 @@ export default function HowItWorksPage() {
       <PageHero
         eyebrow="Process"
         title="How it works"
-        description="A selective path from submission to release—built on review, conversation and a signed agreement. We do not accept every film, and no step creates a distribution deal on its own."
+        description={`A selective path from submission to release—built on review, conversation and a signed agreement. ${STUDIO_ADVISOR.responseAimLabel}. Acceptance is never guaranteed.`}
       />
 
       <Section tone="elevated">

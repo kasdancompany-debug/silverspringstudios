@@ -31,10 +31,10 @@ export function GenreWall() {
           </p>
         </div>
         <Link
-          href="/what-we-look-for"
+          href="/checklist"
           className="credit text-ivory no-underline transition-colors hover:text-signal"
         >
-          What We Look For →
+          Get the Checklist →
         </Link>
       </div>
 

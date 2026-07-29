@@ -6,18 +6,18 @@ const footerColumns = [
   {
     title: "Studio",
     links: [
-      { href: "/our-approach", label: "Our Approach" },
-      { href: "/about", label: "About" },
-      { href: "/filmmakers", label: "For Filmmakers" },
       { href: "/how-it-works", label: "How It Works" },
+      { href: "/filmmakers", label: "For Filmmakers" },
+      { href: "/our-approach", label: "Our Approach" },
       { href: "/what-we-look-for", label: "What We Look For" },
+      { href: "/about", label: "About" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { href: "/resources", label: "Resource Centre" },
       { href: "/checklist", label: "Readiness Checklist" },
+      { href: "/resources", label: "Resource Centre" },
       { href: "/submit", label: "Submit Your Film" },
       { href: "/contact", label: "Contact" },
     ],
