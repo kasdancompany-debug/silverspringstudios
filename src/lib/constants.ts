@@ -61,6 +61,12 @@ export const GENRES = [
   "Crime",
   "Dark Comedy",
   "Independent Drama",
+  "Action",
+  "Mystery",
+  "Fantasy",
+  "Coming of Age",
+  "Psychological",
+  "Experimental",
   "Other",
 ] as const;
 
