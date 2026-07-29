@@ -4,22 +4,22 @@ import { Wordmark } from "./Wordmark";
 
 const footerColumns = [
   {
-    title: "Studio",
+    title: "Company",
     links: [
-      { href: "/how-it-works", label: "How It Works" },
-      { href: "/filmmakers", label: "For Filmmakers" },
-      { href: "/our-approach", label: "Our Approach" },
-      { href: "/what-we-look-for", label: "What We Look For" },
+      { href: "/filmmakers", label: "Distribution" },
+      { href: "/how-it-works", label: "Process" },
       { href: "/about", label: "About" },
+      { href: "/what-we-look-for", label: "What We Look For" },
+      { href: "/contact", label: "Contact" },
     ],
   },
   {
-    title: "Resources",
+    title: "Filmmakers",
     links: [
-      { href: "/checklist", label: "Readiness Checklist" },
-      { href: "/resources", label: "Resource Centre" },
-      { href: "/submit", label: "Submit Your Film" },
-      { href: "/contact", label: "Contact" },
+      { href: "/submit", label: "Submit Now" },
+      { href: "/checklist", label: "Checklist" },
+      { href: "/resources", label: "Resources" },
+      { href: "/our-approach", label: "Our Approach" },
     ],
   },
   {
@@ -37,14 +37,11 @@ export function Footer() {
     <footer className="border-t border-line bg-void">
       <div className="container-page py-16 md:py-20">
         <div className="grid gap-14 lg:grid-cols-[1.1fr_1.6fr] lg:gap-20">
-          <div className="max-w-md space-y-8">
+          <div className="max-w-md space-y-6">
             <Wordmark size="md" />
-            <p className="font-display text-2xl leading-snug text-ivory md:text-3xl">
-              Independent film. Digital distribution.
-            </p>
-            <p className="text-sm leading-relaxed text-slate">
-              Selective acquisition of completed features for streaming and digital release —
-              professional packaging, clear terms, and respect for filmmakers with serious intent.
+            <p className="text-base leading-relaxed text-silver">
+              Independent film distribution for digital and streaming audiences — with a personal
+              approach to packaging and release.
             </p>
             <a
               href={`mailto:${SITE.email}`}
@@ -57,7 +54,7 @@ export function Footer() {
           <div className="grid gap-10 sm:grid-cols-3">
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <p className="credit mb-5 text-signal">{column.title}</p>
+                <p className="mb-5 text-xs tracking-[0.18em] uppercase text-signal">{column.title}</p>
                 <ul className="space-y-3">
                   {column.links.map((link) => (
                     <li key={link.href + link.label}>
@@ -78,8 +75,8 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 text-xs text-slate md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Silver Spring Studios. All rights reserved.</p>
           <p className="max-w-xl md:text-right">
-            Submission does not create a distribution agreement. Acceptance, placement and revenue
-            are never guaranteed. Final terms are governed by each signed agreement.
+            Submission does not create a distribution agreement. Acceptance and platform placement
+            are never guaranteed.
           </p>
         </div>
       </div>

@@ -1,16 +1,16 @@
-/** Public conversion defaults — tone: professional distributor, not startup pitch. */
+/** Public site defaults — Indie Rights / Wild Eye presentation style. */
 export const STUDIO_ADVISOR = {
   heroPrimaryCta: {
-    href: "/#model",
-    label: "Our Model",
+    href: "/submit",
+    label: "Submit Now",
   },
   heroSecondaryCta: {
-    href: "/submit",
-    label: "Submit a Film",
+    href: "/filmmakers",
+    label: "Distribution",
   },
   responseAimDays: 14,
-  responseAimLabel: "Response within approximately 14 days",
+  responseAimLabel: "We typically respond within 14 days",
   deskLabel: "Acquisitions",
   deskBlurb:
-    "We review completed features for selective digital and streaming release — with attention to craft, audience, and presentation.",
+    "We review completed feature films for selective digital and streaming distribution.",
 } as const;

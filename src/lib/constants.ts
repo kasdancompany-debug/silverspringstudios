@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Silver Spring Studios",
-  tagline: "Independent film. Digital distribution.",
+  tagline: "Independent Film Distribution",
   description:
-    "Silver Spring Studios is an independent film distributor focused on selective digital and streaming releases — with professional packaging and clear terms for filmmakers.",
+    "Silver Spring Studios is an independent film distributor with a personal approach to packaging and releasing completed films for digital and streaming platforms.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://silverspringstudios.example",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "acquisitions@silverspringstudios.example",
   adminEmail:

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { STUDIO_ADVISOR } from "@/lib/studio-advisor";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -11,11 +10,11 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-void">
+    <section className="relative flex min-h-[85svh] items-end overflow-hidden bg-void md:min-h-[100svh]">
       <div className="absolute inset-0">
         <motion.div
           className="absolute inset-0"
-          initial={reduceMotion ? false : { scale: 1.08 }}
+          initial={reduceMotion ? false : { scale: 1.06 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease }}
         >
@@ -29,48 +28,30 @@ export function Hero() {
           />
         </motion.div>
         <div aria-hidden className="media-scrim absolute inset-0" />
-        <div aria-hidden className="film-grain absolute inset-0" />
       </div>
 
-      <div className="container-page relative z-[2] w-full pb-10 pt-32 md:pb-14 md:pt-28">
+      <div className="container-page relative z-[2] w-full pb-14 pt-32 md:pb-20">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 36 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease, delay: 0.15 }}
-          className="max-w-5xl"
+          transition={{ duration: 0.85, ease, delay: 0.1 }}
+          className="max-w-4xl"
         >
-          <p className="credit text-signal">Independent Film Distribution</p>
-
-          <h1 className="mt-3 font-impact text-[clamp(4.5rem,18vw,12rem)] leading-[0.8] tracking-[0.01em] text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.65)]">
-            Silver
-            <br />
-            Spring
+          <p className="text-sm tracking-[0.2em] uppercase text-signal">
+            Independent Film Distribution
+          </p>
+          <h1 className="mt-4 font-impact text-[clamp(3.5rem,12vw,8rem)] leading-[0.85] tracking-[0.02em] text-white">
+            Silver Spring
+            <span className="mt-2 block text-[0.35em] tracking-[0.4em] text-signal">Studios</span>
           </h1>
-          <p className="mt-3 font-sans text-[0.75rem] uppercase tracking-[0.55em] text-signal md:text-[0.9rem]">
-            Studios
-          </p>
-
-          <p className="mt-8 max-w-2xl font-display text-[1.65rem] leading-[1.15] text-white md:text-3xl lg:text-[2.35rem]">
-            Digital distribution for independent filmmakers with vision and intention.
-          </p>
-
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-silver md:text-[0.95rem]">
-            We acquire completed features for selective streaming and digital release — with
-            professional packaging, clear economics, and respect for the work.
-          </p>
-
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href={STUDIO_ADVISOR.heroPrimaryCta.href} variant="signal" size="lg">
-              {STUDIO_ADVISOR.heroPrimaryCta.label}
+            <ButtonLink href="/submit" variant="signal" size="lg">
+              Submit Now
             </ButtonLink>
-            <ButtonLink href={STUDIO_ADVISOR.heroSecondaryCta.href} variant="secondary" size="lg">
-              {STUDIO_ADVISOR.heroSecondaryCta.label}
+            <ButtonLink href="/#welcome" variant="secondary" size="lg">
+              Learn More
             </ButtonLink>
           </div>
-
-          <p className="mt-8 credit text-ivory/55">
-            Submissions open · No submission fee · {STUDIO_ADVISOR.responseAimLabel}
-          </p>
         </motion.div>
       </div>
     </section>

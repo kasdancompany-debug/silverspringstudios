@@ -8,12 +8,12 @@ import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
-/** Advisor nav: path over catalogue. Resources demoted until articles publish. */
+/** Indie Rights–style primary nav: distribution-first, simple labels. */
 const PRIMARY_LINKS = [
+  { href: "/filmmakers", label: "Distribution" },
   { href: "/how-it-works", label: "Process" },
-  { href: "/filmmakers", label: "Filmmakers" },
-  { href: "/our-approach", label: "Approach" },
-  { href: "/checklist", label: "Checklist" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
@@ -38,23 +38,21 @@ export function Header() {
       <div className="container-page flex items-center justify-between py-4 md:py-5">
         <Wordmark size="sm" />
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {PRIMARY_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "credit no-underline transition-colors",
-                pathname === link.href || pathname.startsWith(`${link.href}/`)
-                  ? "text-signal"
-                  : "text-silver hover:text-ivory",
+                "text-sm tracking-[0.04em] text-silver no-underline transition-colors hover:text-ivory",
+                (pathname === link.href || pathname.startsWith(`${link.href}/`)) && "text-signal",
               )}
             >
               {link.label}
             </Link>
           ))}
           <ButtonLink href="/submit" size="sm" variant="signal">
-            Submit
+            Submit Now
           </ButtonLink>
         </nav>
 
@@ -84,7 +82,7 @@ export function Header() {
               </Link>
             ))}
             <ButtonLink href="/submit" variant="signal" onClick={() => setOpen(false)}>
-              Submit a Film
+              Submit Now
             </ButtonLink>
           </nav>
         </div>
