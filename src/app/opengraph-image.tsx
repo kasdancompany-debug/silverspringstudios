@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { SITE } from "@/lib/constants";
 
-export const runtime = "edge";
 export const alt = `${SITE.name} — Independent film distribution`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
