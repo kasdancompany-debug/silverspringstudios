@@ -1,0 +1,93 @@
+import type { PartnerPage } from "@/types/database";
+
+/** In-memory partner landing pages used when Supabase is unavailable. */
+export const DEMO_PARTNERS: PartnerPage[] = [
+  {
+    id: "demo-partner-midnight-circuit",
+    slug: "midnight-circuit",
+    partner_name: "Midnight Circuit Festival",
+    partner_type: "festival",
+    headline: "From festival selection to a considered digital release",
+    introduction:
+      "Midnight Circuit celebrates bold genre storytelling. Silver Spring Studios partners with alumni and selected filmmakers who leave the festival with a finished film and are ready to discuss a transparent digital release path — without an upfront release invoice.",
+    seeking:
+      "Completed features and documentaries with clear rights, a watchable screener, and honest release expectations. Strong fits: horror, thriller, dark comedy, and elevated genre hybrids that played Midnight Circuit in the last three years.",
+    submission_cta_label: "Submit via Midnight Circuit",
+    resource_download_slug: "distribution-readiness-checklist",
+    contact_email: "acquisitions@silverspringstudios.example",
+    contact_note: "Mention Midnight Circuit in your submission so our team can prioritize festival alumni review.",
+    tracking_source: "midnight-circuit",
+    tracking_medium: "partner",
+    tracking_campaign: "midnight-circuit",
+    is_published: false,
+    created_by: null,
+    created_at: "2026-01-15T12:00:00.000Z",
+    updated_at: "2026-01-15T12:00:00.000Z",
+  },
+  {
+    id: "demo-partner-northern-lens",
+    slug: "northern-lens-film-school",
+    partner_name: "Northern Lens Film School",
+    partner_type: "film_school",
+    headline: "A release conversation for graduating thesis films",
+    introduction:
+      "Northern Lens prepares filmmakers for professional practice. This page is for graduates and thesis teams with a locked picture who want a clear-eyed look at boutique digital distribution — deliverables, recoupment, and what selective acquisition actually means.",
+    seeking:
+      "Thesis and graduate features (or feature-length docs) with faculty sign-off on rights ownership, music clearance status, and a complete master plan. We look for films ready to be packaged, not projects still in post.",
+    submission_cta_label: "Submit as a Northern Lens graduate",
+    resource_download_slug: "distribution-readiness-checklist",
+    contact_email: "acquisitions@silverspringstudios.example",
+    contact_note: "Faculty referrals are welcome — include your program year in the additional context field.",
+    tracking_source: "northern-lens",
+    tracking_medium: "partner",
+    tracking_campaign: "northern-lens-film-school",
+    is_published: false,
+    created_by: null,
+    created_at: "2026-02-01T12:00:00.000Z",
+    updated_at: "2026-02-01T12:00:00.000Z",
+  },
+  {
+    id: "demo-partner-prairie-producers",
+    slug: "prairie-producers-collective",
+    partner_name: "Prairie Producers Collective",
+    partner_type: "producer_org",
+    headline: "Distribution support for member producers",
+    introduction:
+      "Prairie Producers Collective connects independent producers across the prairies. Silver Spring Studios offers Collective members a dedicated submission path and a practical checklist so titles arrive review-ready.",
+    seeking:
+      "Member-produced completed films with clean chain of title, caption plans, and realistic digital release goals. Prefer titles that have completed at least one festival or community premiere.",
+    submission_cta_label: "Submit as a Collective member",
+    resource_download_slug: "distribution-readiness-checklist",
+    contact_email: "acquisitions@silverspringstudios.example",
+    contact_note: "Include your Collective membership confirmation in the additional context field.",
+    tracking_source: "prairie-producers",
+    tracking_medium: "partner",
+    tracking_campaign: "prairie-producers-collective",
+    is_published: false,
+    created_by: null,
+    created_at: "2026-02-20T12:00:00.000Z",
+    updated_at: "2026-02-20T12:00:00.000Z",
+  },
+  {
+    id: "demo-partner-cold-open",
+    slug: "cold-open-horror",
+    partner_name: "Cold Open Horror Community",
+    partner_type: "genre_community",
+    headline: "For horror filmmakers ready to talk release",
+    introduction:
+      "Cold Open is a community of horror and thriller makers who share craft, festivals, and release lessons. This partner page routes Cold Open members into our acquisitions queue with genre-aware context.",
+    seeking:
+      "Finished horror, thriller, and dark speculative features with a clear audience hook, usable key art direction, and rights ready for digital. Micro-budget is welcome when the film is locked and deliverable.",
+    submission_cta_label: "Submit from Cold Open",
+    resource_download_slug: "distribution-readiness-checklist",
+    contact_email: "acquisitions@silverspringstudios.example",
+    contact_note: "Tell us which Cold Open channels or events brought you here.",
+    tracking_source: "cold-open",
+    tracking_medium: "partner",
+    tracking_campaign: "cold-open-horror",
+    is_published: false,
+    created_by: null,
+    created_at: "2026-03-01T12:00:00.000Z",
+    updated_at: "2026-03-01T12:00:00.000Z",
+  },
+];

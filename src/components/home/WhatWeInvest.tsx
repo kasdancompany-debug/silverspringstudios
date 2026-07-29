@@ -1,0 +1,129 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { RELEASE_INVESTMENT } from "@/lib/constants";
+import { formatCurrency } from "@/lib/utils";
+import { Section } from "@/components/ui/Section";
+import { CreditLine, DocFrame } from "@/components/home/motifs";
+
+const services = [
+  {
+    title: "Positioning and release strategy",
+    description:
+      "Audience definition, genre positioning and a practical plan for how the title should enter the market.",
+  },
+  {
+    title: "Poster and key art",
+    description:
+      "Original poster design and key-art adaptation suited to digital and physical campaign use.",
+    value: RELEASE_INVESTMENT.posterDesign,
+  },
+  {
+    title: "Trailer editing",
+    description:
+      "Editorial trailer support drawn from available materials to help the film present with clarity and intent.",
+    value: RELEASE_INVESTMENT.trailerAndPublicity,
+  },
+  {
+    title: "Metadata and deliverables",
+    description:
+      "Platform-ready metadata, caption coordination and review of technical deliverables before release.",
+  },
+  {
+    title: "Publicity materials",
+    description:
+      "Electronic press kit preparation, still selection and messaging support for outreach.",
+  },
+  {
+    title: "Platform and licensing outreach",
+    description:
+      "Targeted positioning and licensing conversations aligned with the film’s rights and audience.",
+  },
+  {
+    title: "Reporting and filmmaker communication",
+    description:
+      "Scheduled revenue reporting, expense documentation and direct communication throughout the term.",
+  },
+];
+
+export function WhatWeInvest() {
+  return (
+    <Section id="what-we-invest" tone="elevated" className="overflow-hidden">
+      <div className="mb-16 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="max-w-2xl">
+          <CreditLine>Release Support</CreditLine>
+          <h2 className="mt-5 font-display text-[2.5rem] text-ivory md:text-5xl">
+            What we invest in a release.
+          </h2>
+          <p className="mt-6 text-[0.95rem] leading-[1.75] text-slate">
+            Release plans are tailored to each film. Not every accepted project receives every
+            service listed below. The scope is defined during review and specified in the signed
+            agreement.
+          </p>
+        </div>
+
+        <DocFrame className="max-w-sm bg-ink/40 px-6 py-6 md:px-7 md:py-7">
+          <p className="credit text-warm-metal">Standard offer · Valued</p>
+          <p className="mt-3 font-display text-4xl text-ivory">
+            {formatCurrency(RELEASE_INVESTMENT.total)}
+          </p>
+          <p className="mt-2 text-sm text-slate">
+            Initial release investment — not invoiced to the filmmaker.
+          </p>
+        </DocFrame>
+      </div>
+
+      {/* Irregular editorial list — not a card grid */}
+      <div className="space-y-0">
+        {services.map((service, index) => (
+          <motion.div
+            key={service.title}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: index * 0.04 }}
+            className="group grid gap-3 border-t border-line py-7 md:grid-cols-[minmax(0,12rem)_minmax(0,1fr)_auto] md:items-baseline md:gap-10 md:py-8"
+          >
+            <p className="credit text-slate/60">
+              {String(index + 1).padStart(2, "0")} / SERVICE
+            </p>
+            <div>
+              <h3 className="font-display text-xl text-ivory md:text-2xl">{service.title}</h3>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate">
+                {service.description}
+              </p>
+            </div>
+            {service.value ? (
+              <p className="credit text-warm-metal md:text-right">
+                {formatCurrency(service.value)} value
+              </p>
+            ) : (
+              <span className="hidden md:block" />
+            )}
+          </motion.div>
+        ))}
+        <div className="border-t border-line" />
+      </div>
+
+      <motion.aside
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55 }}
+        className="mt-14 max-w-3xl border-l-2 border-forest pl-6 md:pl-8"
+      >
+        <p className="text-sm leading-relaxed text-slate md:text-[0.95rem]">
+          For the initial standard offer, poster design is valued at{" "}
+          <span className="text-ivory">{formatCurrency(RELEASE_INVESTMENT.posterDesign)}</span>{" "}
+          and trailer editing with publicity support is valued at{" "}
+          <span className="text-ivory">
+            {formatCurrency(RELEASE_INVESTMENT.trailerAndPublicity)}
+          </span>
+          . The filmmaker is not personally invoiced for this amount. Silver Spring Studios
+          recoups the agreed release investment only from revenue generated by the film, subject
+          to the signed distribution agreement.
+        </p>
+      </motion.aside>
+    </Section>
+  );
+}
