@@ -34,7 +34,7 @@ export function GenreWall() {
           href="/checklist"
           className="credit text-ivory no-underline transition-colors hover:text-signal"
         >
-          Get the Checklist →
+          Submission Checklist →
         </Link>
       </div>
 
