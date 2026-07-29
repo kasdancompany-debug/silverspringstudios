@@ -56,8 +56,9 @@ export function Hero() {
           </p>
 
           <p className="mt-5 max-w-md text-sm leading-relaxed text-silver md:text-[0.95rem]">
-            We help finished independent films look and feel intentional on streaming — poster,
-            trailer and positioning invested upfront, recovered from film receipts.
+            We help finished independent films look intentional on streaming platforms — poster,
+            trailer and positioning invested with you, recovered from film receipts. Digital
+            release only.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

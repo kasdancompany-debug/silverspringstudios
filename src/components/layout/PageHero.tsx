@@ -6,7 +6,7 @@ export function PageHero({
   title,
   description,
   children,
-  imageSrc = "/brand/genre-thriller.jpg",
+  imageSrc = "/brand/cta.jpg",
 }: {
   eyebrow?: string;
   title: string;
