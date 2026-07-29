@@ -74,7 +74,7 @@ export function SectionHeader({
         <p
           className={cn(
             "credit mb-5",
-            light ? "text-forest" : "text-warm-metal",
+            light ? "text-signal-dim" : "text-signal",
           )}
         >
           {eyebrow}
@@ -82,7 +82,7 @@ export function SectionHeader({
       ) : null}
       <h2
         className={cn(
-          "font-display text-[2.5rem] text-balance md:text-5xl lg:text-[3.5rem]",
+          "font-impact text-[clamp(2.25rem,6vw,3.75rem)] tracking-[0.02em] text-balance",
           light ? "text-ink" : "text-ivory",
           titleClassName,
         )}

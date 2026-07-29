@@ -98,7 +98,7 @@ export function FoundingSlateSignup({ className }: { className?: string }) {
   if (success) {
     return (
       <div className={cn("border border-line-strong bg-surface p-8 md:p-10", className)}>
-        <p className="credit text-warm-metal">You&apos;re on the list</p>
+        <p className="credit text-signal">You&apos;re on the list</p>
         <h3 className="mt-4 font-display text-2xl text-ivory md:text-3xl">
           Thanks for following the founding slate.
         </h3>
@@ -108,7 +108,7 @@ export function FoundingSlateSignup({ className }: { className?: string }) {
           review, you can submit any time.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <ButtonLink href={SUBMIT_HREF} size="lg">
+          <ButtonLink href={SUBMIT_HREF} variant="signal" size="lg">
             Submit Your Film
           </ButtonLink>
           <Button type="button" variant="secondary" size="lg" onClick={() => setSuccess(false)}>
@@ -121,7 +121,7 @@ export function FoundingSlateSignup({ className }: { className?: string }) {
 
   return (
     <div className={cn("border border-line-strong bg-surface p-8 md:p-10", className)}>
-      <p className="credit text-warm-metal">Founding Slate interest list</p>
+      <p className="credit text-signal">Founding Slate interest list</p>
       <h3 className="mt-4 font-display text-2xl text-ivory md:text-3xl">
         Follow the founding slate as it&apos;s built
       </h3>
@@ -220,7 +220,7 @@ export function FoundingSlateSignup({ className }: { className?: string }) {
         ) : null}
 
         <div className="flex flex-wrap items-center gap-4">
-          <Button type="submit" size="lg" disabled={submitting}>
+          <Button type="submit" variant="signal" size="lg" disabled={submitting}>
             {submitting ? "Joining…" : "Join the interest list"}
           </Button>
           <Link

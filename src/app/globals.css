@@ -1,28 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #090a0c;
-  --ivory: #f1eee7;
-  --slate: #9da2a8;
-  --silver: #b8bdc4;
-  --forest: #495a50;
-  --forest-soft: #5d7266;
-  --warm-metal: #c4b8a8;
-  --line: rgba(241, 238, 231, 0.12);
-  --line-strong: rgba(241, 238, 231, 0.22);
-  --line-ink: rgba(9, 10, 12, 0.12);
-  --line-ink-strong: rgba(9, 10, 12, 0.22);
-  --surface: #0f1114;
-  --surface-elevated: #15181c;
-  --danger: #a65d5d;
-  --success: #5d8a72;
+  /* Void black + chalk white — distributor prestige */
+  --ink: #050505;
+  --void: #000000;
+  --ivory: #f3f1ea;
+  --chalk: #f7f6f2;
+  --slate: #8e8e8a;
+  --silver: #c9c9c4;
+  /* Spring mercury — distinctive, not purple / terracotta / forest-default */
+  --signal: #5ce1e6;
+  --signal-dim: #2a9ea3;
+  --flare: #e8ff6a;
+  --line: rgba(243, 241, 234, 0.12);
+  --line-strong: rgba(243, 241, 234, 0.28);
+  --line-ink: rgba(5, 5, 5, 0.12);
+  --line-ink-strong: rgba(5, 5, 5, 0.22);
+  --surface: #0c0c0c;
+  --surface-elevated: #141414;
+  --danger: #ff5c5c;
+  --success: #5ce1a0;
+  /* legacy aliases used across admin + public */
+  --forest: var(--signal-dim);
+  --forest-soft: var(--signal);
+  --warm-metal: var(--signal);
 }
 
 @theme inline {
   --color-ink: var(--ink);
+  --color-void: var(--void);
   --color-ivory: var(--ivory);
+  --color-chalk: var(--chalk);
   --color-slate: var(--slate);
   --color-silver: var(--silver);
+  --color-signal: var(--signal);
+  --color-signal-dim: var(--signal-dim);
+  --color-flare: var(--flare);
   --color-forest: var(--forest);
   --color-forest-soft: var(--forest-soft);
   --color-warm-metal: var(--warm-metal);
@@ -37,6 +50,7 @@
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-body: var(--font-sans);
+  --font-impact: var(--font-impact);
 }
 
 @layer base {
@@ -52,25 +66,26 @@
     background: var(--ink);
     color: var(--ivory);
     font-family: var(--font-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: 1.025rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--forest) 55%, transparent);
-    color: var(--ivory);
+    background: color-mix(in srgb, var(--signal) 55%, transparent);
+    color: var(--void);
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: var(--font-display), "Times New Roman", Georgia, serif;
+    font-family: var(--font-impact), Impact, "Arial Narrow", sans-serif;
     font-weight: 400;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
+    letter-spacing: 0.01em;
+    line-height: 0.92;
+    text-transform: uppercase;
   }
 
   a {
@@ -80,14 +95,24 @@
   }
 
   :focus-visible {
-    outline: 1px solid var(--warm-metal);
+    outline: 1px solid var(--signal);
     outline-offset: 3px;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-display), "Times New Roman", Georgia, serif;
+    font-family: var(--font-display), Georgia, "Times New Roman", serif;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    line-height: 1.05;
+  }
+
+  .font-impact {
+    font-family: var(--font-impact), Impact, "Arial Narrow", sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 0.92;
   }
 
   .font-sans {
@@ -105,7 +130,7 @@
   .container-page {
     margin-inline: auto;
     width: 100%;
-    max-width: 76rem;
+    max-width: 84rem;
     padding-inline: 1.25rem;
   }
 
@@ -117,7 +142,7 @@
 
   @media (min-width: 1024px) {
     .container-page {
-      padding-inline: 2.75rem;
+      padding-inline: 2.5rem;
     }
   }
 
@@ -137,7 +162,7 @@
   .credit {
     font-family: var(--font-sans), sans-serif;
     font-size: 0.6875rem;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     line-height: 1.4;
   }
@@ -145,26 +170,52 @@
   .editorial-rule {
     height: 1px;
     width: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--line-strong),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
   }
 
   .editorial-rule-ink {
     height: 1px;
     width: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--line-ink-strong),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, var(--line-ink-strong), transparent);
   }
 
-  /* Simulated film grain — CSS only, no image asset */
+  /* Anamorphic light leak / lens atmosphere */
+  .cine-field {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--void);
+  }
+
+  .cine-field::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: -20%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 55% 40% at 18% 72%, rgba(92, 225, 230, 0.18), transparent 60%),
+      radial-gradient(ellipse 45% 35% at 88% 18%, rgba(232, 255, 106, 0.08), transparent 55%),
+      radial-gradient(ellipse 80% 50% at 50% 110%, rgba(42, 158, 163, 0.2), transparent 50%),
+      linear-gradient(180deg, #050505 0%, #0a0a0a 45%, #000 100%);
+  }
+
+  .cine-field::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.35;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.03) 48%,
+      transparent 58%
+    );
+    mix-blend-mode: screen;
+  }
+
   .film-grain {
     position: relative;
     isolation: isolate;
@@ -176,7 +227,7 @@
     position: absolute;
     inset: 0;
     z-index: 3;
-    opacity: 0.07;
+    opacity: 0.09;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     animation: grain-shift 8s steps(10) infinite;
@@ -216,6 +267,19 @@
     }
   }
 
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -226,15 +290,12 @@
       scroll-behavior: auto !important;
     }
 
-    .film-grain::after {
+    .film-grain::after,
+    .marquee-track {
       animation: none !important;
     }
   }
 
-  /* Print support — used by the submission receipt's "Print" button.
-     Site chrome (nav/footer) and dark backgrounds don't print well, so we
-     hide chrome globally and let print-scoped content (e.g. the `print:`
-     Tailwind variants in SubmissionReceipt) render on a plain white page. */
   @media print {
     header,
     footer {
@@ -247,7 +308,6 @@
     }
   }
 
-  /* Legacy alias used by older components */
   .grain {
     position: relative;
   }
@@ -258,7 +318,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    opacity: 0.05;
+    opacity: 0.06;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }

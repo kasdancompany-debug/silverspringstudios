@@ -33,10 +33,10 @@ function FaqItem({
         className="flex w-full items-start justify-between gap-6 py-6 text-left md:py-7"
       >
         <span className="flex gap-5">
-          <span className="credit shrink-0 pt-1.5 text-warm-metal/40">
+          <span className="credit shrink-0 pt-1.5 text-signal/40">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="font-display text-lg leading-snug text-ivory md:text-xl">
+          <span className="font-impact text-xl tracking-[0.03em] leading-snug text-ivory md:text-2xl">
             {item.question}
           </span>
         </span>
@@ -76,7 +76,7 @@ export function FAQ() {
       <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <CreditLine>Questions</CreditLine>
-          <h2 className="mt-5 font-display text-[2.5rem] text-ivory md:text-5xl">
+          <h2 className="mt-5 font-impact text-[clamp(2.25rem,6vw,3.75rem)] tracking-[0.02em] text-ivory">
             Frequently asked questions.
           </h2>
           <p className="mt-6 max-w-sm text-[0.95rem] leading-[1.75] text-slate">

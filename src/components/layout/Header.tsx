@@ -2,43 +2,65 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
+/** Lean primary nav — A24/Neon style. Full sitemap lives in the footer. */
+const PRIMARY_LINKS = [
+  { href: "/our-approach", label: "Approach" },
+  { href: "/filmmakers", label: "Filmmakers" },
+  { href: "/resources", label: "Resources" },
+  { href: "/about", label: "About" },
+] as const;
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <div className="container-page flex items-center justify-between py-6 md:py-8">
-        <Wordmark />
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        scrolled || open ? "bg-void/90 backdrop-blur-md border-b border-line" : "bg-transparent",
+      )}
+    >
+      <div className="container-page flex items-center justify-between py-4 md:py-5">
+        <Wordmark size="sm" />
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {NAV_LINKS.map((link) => (
+        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+          {PRIMARY_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
                 "credit no-underline transition-colors",
-                pathname === link.href ? "text-ivory" : "text-slate hover:text-ivory",
+                pathname === link.href || pathname.startsWith(`${link.href}/`)
+                  ? "text-signal"
+                  : "text-silver hover:text-ivory",
               )}
             >
               {link.label}
             </Link>
           ))}
-          <ButtonLink href="/submit" size="sm">
-            Submit Your Film
+          <ButtonLink href="/submit" size="sm" variant="signal">
+            Submit Film
           </ButtonLink>
         </nav>
 
         <button
           type="button"
-          className="lg:hidden text-ivory"
+          className="text-ivory lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -49,23 +71,20 @@ export function Header() {
       </div>
 
       {open ? (
-        <div
-          id="mobile-nav"
-          className="border-t border-line bg-ink/95 backdrop-blur-md lg:hidden"
-        >
-          <nav className="container-page flex flex-col gap-5 py-8" aria-label="Mobile">
-            {NAV_LINKS.map((link) => (
+        <div id="mobile-nav" className="border-t border-line bg-void lg:hidden">
+          <nav className="container-page flex flex-col gap-6 py-8" aria-label="Mobile">
+            {PRIMARY_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="credit no-underline text-ivory"
+                className="font-impact text-3xl tracking-[0.04em] text-ivory no-underline"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <ButtonLink href="/submit" onClick={() => setOpen(false)}>
-              Submit Your Film
+            <ButtonLink href="/submit" variant="signal" onClick={() => setOpen(false)}>
+              Submit Film
             </ButtonLink>
           </nav>
         </div>

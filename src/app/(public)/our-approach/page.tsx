@@ -351,11 +351,11 @@ export default function OurApproachPage() {
         </ul>
       </Section>
 
-      <Section tone="surface">
+      <Section id="founding-slate" tone="surface">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="credit text-warm-metal">Founding Slate</p>
-            <h2 className="mt-5 font-display text-[2.25rem] text-ivory text-balance md:text-4xl">
+            <p className="credit text-signal">Founding Slate</p>
+            <h2 className="mt-5 font-impact text-[clamp(2rem,5vw,3.25rem)] tracking-[0.02em] text-ivory text-balance">
               Building our founding slate
             </h2>
             <p className="mt-6 max-w-md text-[0.95rem] leading-[1.75] text-slate">

@@ -77,7 +77,7 @@ export default function AboutPage() {
           </div>
 
           <aside className="border border-line-strong bg-surface p-8 md:p-10">
-            <p className="text-xs tracking-[0.18em] uppercase text-warm-metal">At a glance</p>
+            <p className="credit text-signal">At a glance</p>
             <dl className="mt-8 space-y-6">
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Focus</dt>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core belief</dt>
-                <dd className="mt-2 font-display text-xl text-warm-metal">
+                <dd className="mt-2 font-display text-xl text-signal">
                   Independent films deserve a real release.
                 </dd>
               </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
         <div className="grid gap-10 md:grid-cols-2">
           {principles.map((item) => (
             <article key={item.title} className="border-t border-line-strong pt-8">
-              <h3 className="font-display text-xl text-ivory">{item.title}</h3>
+              <h3 className="font-impact text-2xl tracking-[0.03em] text-ivory">{item.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-slate">{item.body}</p>
             </article>
           ))}
@@ -128,7 +128,7 @@ export default function AboutPage() {
             description="If you believe your project aligns with our focus and you can speak clearly about rights and audience, we welcome your submission."
           />
           <div className="flex flex-wrap gap-4">
-            <ButtonLink href="/submit">Submit Your Film</ButtonLink>
+            <ButtonLink href="/submit" variant="signal">Submit Your Film</ButtonLink>
             <ButtonLink href="/contact" variant="secondary" className="border-ink/20 text-ink hover:border-ink">
               Contact Us
             </ButtonLink>

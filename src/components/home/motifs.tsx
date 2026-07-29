@@ -54,7 +54,7 @@ export function CreditLine({
   light?: boolean;
 }) {
   return (
-    <p className={cn("credit", light ? "text-forest" : "text-warm-metal", className)}>
+    <p className={cn("credit", light ? "text-signal-dim" : "text-signal", className)}>
       {children}
     </p>
   );

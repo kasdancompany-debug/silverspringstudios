@@ -4,50 +4,51 @@ import { Wordmark } from "./Wordmark";
 
 const footerColumns = [
   {
-    title: "Explore",
+    title: "Studio",
     links: [
+      { href: "/our-approach", label: "Our Approach" },
+      { href: "/about", label: "About" },
+      { href: "/filmmakers", label: "For Filmmakers" },
       { href: "/how-it-works", label: "How It Works" },
       { href: "/what-we-look-for", label: "What We Look For" },
-      { href: "/filmmakers", label: "For Filmmakers" },
-      { href: "/resources", label: "Resources" },
-      { href: "/checklist", label: "Checklist" },
-      { href: "/submit", label: "Submit Your Film" },
     ],
   },
   {
-    title: "Company",
+    title: "Resources",
     links: [
-      { href: "/about", label: "About" },
-      { href: "/our-approach", label: "Our Approach" },
+      { href: "/resources", label: "Resource Centre" },
+      { href: "/checklist", label: "Readiness Checklist" },
+      { href: "/submit", label: "Submit Your Film" },
       { href: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
       { href: "/privacy", label: "Privacy" },
       { href: "/terms", label: "Terms" },
-    ],
-  },
-  {
-    title: "Submissions",
-    links: [
       { href: "/submission-terms", label: "Submission Terms" },
-      { href: "/contact", label: "Acquisitions" },
     ],
   },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-ink">
+    <footer className="border-t border-line bg-void">
       <div className="container-page py-16 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
-          <div className="max-w-sm space-y-6">
-            <Wordmark />
+        <div className="grid gap-14 lg:grid-cols-[1.1fr_1.6fr] lg:gap-20">
+          <div className="max-w-md space-y-8">
+            <Wordmark size="md" />
+            <p className="font-display text-2xl leading-snug text-ivory md:text-3xl">
+              Independent films deserve a real release.
+            </p>
             <p className="text-sm leading-relaxed text-slate">
-              Boutique independent film distribution. Selective partnerships,
-              transparent terms, and release support without an upfront invoice
-              to the filmmaker.
+              Boutique distribution for completed features — selective partnerships, invested
+              packaging, and transparent economics. No invented catalogue. Building title by title.
             </p>
             <a
               href={`mailto:${SITE.email}`}
-              className="text-sm text-silver transition-colors hover:text-ivory"
+              className="inline-block text-sm text-signal no-underline transition-colors hover:text-flare"
             >
               {SITE.email}
             </a>
@@ -56,15 +57,13 @@ export function Footer() {
           <div className="grid gap-10 sm:grid-cols-3">
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <p className="mb-4 text-xs tracking-[0.18em] uppercase text-warm-metal">
-                  {column.title}
-                </p>
+                <p className="credit mb-5 text-signal">{column.title}</p>
                 <ul className="space-y-3">
                   {column.links.map((link) => (
                     <li key={link.href + link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-slate no-underline transition-colors hover:text-ivory"
+                        className="text-sm text-silver no-underline transition-colors hover:text-ivory"
                       >
                         {link.label}
                       </Link>
@@ -76,14 +75,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="editorial-rule my-12" />
-
-        <div className="flex flex-col gap-4 text-xs text-slate md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 text-xs text-slate md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Silver Spring Studios. All rights reserved.</p>
           <p className="max-w-xl md:text-right">
-            Acceptance is selective. Revenue, platform placement and recoupment
-            are never guaranteed. Final terms are governed by each signed
-            distribution agreement.
+            Submission does not create a distribution agreement. Acceptance, placement and revenue
+            are never guaranteed. Final terms are governed by each signed agreement.
           </p>
         </div>
       </div>

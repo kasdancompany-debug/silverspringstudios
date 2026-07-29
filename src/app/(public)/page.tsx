@@ -1,13 +1,9 @@
 import { Hero } from "@/components/home/Hero";
-import { SubmissionStatus } from "@/components/home/SubmissionStatus";
+import { StatementMarquee } from "@/components/home/StatementMarquee";
 import { ModelSection } from "@/components/home/ModelSection";
-import { WhatWeInvest } from "@/components/home/WhatWeInvest";
-import { RevenueWaterfall } from "@/components/home/RevenueWaterfall";
-import { WhatWeSeek } from "@/components/home/WhatWeSeek";
-import { WhyFilmmakers } from "@/components/home/WhyFilmmakers";
-import { ConversationSection } from "@/components/home/ConversationSection";
-import { ThreeSteps } from "@/components/home/ThreeSteps";
-import { Transparency } from "@/components/home/Transparency";
+import { GenreWall } from "@/components/home/GenreWall";
+import { ApproachNumerals } from "@/components/home/ApproachNumerals";
+import { FoundingStrip } from "@/components/home/FoundingStrip";
 import { FAQ } from "@/components/home/FAQ";
 import { faqItems } from "@/lib/faq-items";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -35,15 +31,11 @@ export default function HomePage() {
         }))}
       />
       <Hero />
-      <SubmissionStatus />
+      <StatementMarquee />
       <ModelSection />
-      <WhatWeInvest />
-      <RevenueWaterfall />
-      <WhatWeSeek />
-      <ConversationSection />
-      <WhyFilmmakers />
-      <ThreeSteps />
-      <Transparency />
+      <GenreWall />
+      <ApproachNumerals />
+      <FoundingStrip />
       <FAQ />
       <FinalCTA />
     </>

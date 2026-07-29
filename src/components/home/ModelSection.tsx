@@ -1,83 +1,98 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Section } from "@/components/ui/Section";
-import { CreditLine, PullQuote, SectionRule } from "@/components/home/motifs";
+import { motion, useReducedMotion } from "framer-motion";
+import { RELEASE_INVESTMENT } from "@/lib/constants";
+import { formatCurrency } from "@/lib/utils";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 
-const stages = [
-  {
-    step: "01",
-    title: "We select the film",
-    description:
-      "Completed projects are reviewed for audience clarity, rights readiness, release potential and fit with our current slate.",
-  },
-  {
-    step: "02",
-    title: "We prepare the release",
-    description:
-      "Selected films may receive tailored positioning, key art, trailer support, deliverables review and publicity preparation.",
-  },
-  {
-    step: "03",
-    title: "The film begins earning",
-    description:
-      "The title enters licensed exploitation. Revenue is tracked against agreed expenses and recoupable release investment.",
-  },
-  {
-    step: "04",
-    title: "Investment recouped, then receipts shared",
-    description:
-      "After the agreed release investment is recouped from film receipts, distributable receipts are shared according to the signed agreement.",
-  },
-];
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function ModelSection() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <Section id="model" tone="dark">
-      <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <CreditLine>The Model</CreditLine>
-          <h2 className="mt-5 font-display text-[2.75rem] leading-[1.02] text-ivory md:text-5xl lg:text-[3.4rem]">
-            We invest before we earn.
-          </h2>
-          <p className="mt-7 max-w-md text-[0.95rem] leading-[1.75] text-slate">
-            A strong release requires more than uploading a video file. Selected films may
-            receive professional key art, trailer editing, release preparation and publicity
-            support without an upfront invoice to the filmmaker.
-          </p>
+    <section id="model" className="relative overflow-hidden bg-ink py-24 md:py-32 lg:py-36">
+      <div className="container-page">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-20 lg:items-end">
+          <div>
+            <p className="credit text-signal">The Model</p>
+            <h2 className="mt-5 font-impact text-[clamp(2.75rem,8vw,5.5rem)] tracking-[0.02em] text-ivory">
+              Invested
+              <br />
+              <span className="text-signal">release.</span>
+              <br />
+              Shared
+              <br />
+              receipts.
+            </h2>
+            <p className="mt-8 max-w-md text-[0.95rem] leading-relaxed text-slate">
+              For selected titles, Silver Spring Studios funds a standard release investment —
+              poster design and trailer/publicity support — then recovers it only from revenue
+              the film generates. After recoupment, remaining distributable receipts typically
+              split {RELEASE_INVESTMENT.filmmakerSharePercent}% filmmaker /{" "}
+              {RELEASE_INVESTMENT.studioSharePercent}% studio.
+            </p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-slate/80">
+              You are not personally invoiced for the standard release investment. Acceptance,
+              placement and revenue are never guaranteed. Final terms live in the signed agreement.
+            </p>
+            <div className="mt-10">
+              <ButtonLink href="/how-it-works" variant="secondary">
+                How It Works
+              </ButtonLink>
+            </div>
+          </div>
 
-          <PullQuote className="mt-14 hidden lg:block" attribution="Silver Spring Studios">
-            The release should serve the film—not ask the filmmaker to finance the packaging
-            first.
-          </PullQuote>
-        </div>
-
-        <div>
-          <SectionRule className="mb-2" />
-          {stages.map((stage, index) => (
-            <motion.article
-              key={stage.step}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="grid gap-4 border-b border-line py-9 first:pt-6 md:grid-cols-[4.5rem_1fr] md:gap-10"
-            >
-              <p className="font-display text-3xl text-warm-metal/45 md:text-4xl">
-                {stage.step}
-              </p>
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, ease }}
+            className="space-y-0 border-t border-line"
+          >
+            <div className="flex items-baseline justify-between gap-6 border-b border-line py-8">
               <div>
-                <h3 className="font-display text-2xl text-ivory md:text-[1.65rem]">
-                  {stage.title}
-                </h3>
-                <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate md:text-[0.95rem]">
-                  {stage.description}
+                <p className="credit text-slate">Release Investment</p>
+                <p className="mt-2 font-impact text-5xl tracking-wide text-ivory md:text-6xl">
+                  {formatCurrency(RELEASE_INVESTMENT.total)}
                 </p>
               </div>
-            </motion.article>
-          ))}
+              <p className="max-w-[10rem] text-right text-xs leading-relaxed text-slate">
+                Poster {formatCurrency(RELEASE_INVESTMENT.posterDesign)} · Trailer/publicity{" "}
+                {formatCurrency(RELEASE_INVESTMENT.trailerAndPublicity)}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 border-b border-line">
+              <div className="border-r border-line py-8 pr-6">
+                <p className="credit text-slate">Filmmaker</p>
+                <p className="mt-2 font-impact text-6xl text-signal md:text-7xl">
+                  {RELEASE_INVESTMENT.filmmakerSharePercent}
+                  <span className="text-4xl">%</span>
+                </p>
+                <p className="mt-2 text-xs text-slate">of distributable receipts after recoupment</p>
+              </div>
+              <div className="py-8 pl-6">
+                <p className="credit text-slate">Studio</p>
+                <p className="mt-2 font-impact text-6xl text-ivory/80 md:text-7xl">
+                  {RELEASE_INVESTMENT.studioSharePercent}
+                  <span className="text-4xl">%</span>
+                </p>
+                <p className="mt-2 text-xs text-slate">typical post-recoupment share</p>
+              </div>
+            </div>
+
+            <div className="py-8">
+              <p className="credit text-flare">Recoupment first</p>
+              <p className="mt-3 max-w-md font-display text-xl leading-snug text-ivory md:text-2xl">
+                Platform fees and the agreed release investment come out before the split.
+                If the film never recoups, you are not personally on the hook for the standard
+                investment.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

@@ -12,16 +12,16 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="grain relative bg-ink pt-28 pb-16 md:pt-36 md:pb-20">
-      <div className="container-page relative z-[2] max-w-3xl">
-        {eyebrow ? (
-          <p className="mb-4 text-xs tracking-[0.22em] uppercase text-warm-metal">{eyebrow}</p>
-        ) : null}
-        <h1 className="font-display text-4xl text-balance text-ivory md:text-5xl lg:text-6xl">
+    <section className="cine-field film-grain relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20">
+      <div className="container-page relative z-[2] max-w-4xl">
+        {eyebrow ? <p className="credit mb-5 text-signal">{eyebrow}</p> : null}
+        <h1 className="font-impact text-[clamp(2.75rem,8vw,5rem)] tracking-[0.02em] text-balance text-ivory">
           {title}
         </h1>
         {description ? (
-          <p className="mt-6 text-base leading-relaxed text-slate md:text-lg">{description}</p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate md:text-lg">
+            {description}
+          </p>
         ) : null}
         {children}
       </div>

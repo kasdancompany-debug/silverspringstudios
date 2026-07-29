@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Instrument_Sans } from "next/font/google";
+import { Bebas_Neue, Instrument_Serif, Manrope } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
+
+const impact = Bebas_Neue({
+  variable: "--font-impact",
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const display = Instrument_Serif({
   variable: "--font-display",
@@ -10,10 +16,10 @@ const display = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
-const sans = Instrument_Sans({
+const sans = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${sans.variable} antialiased`}>
+      <body className={`${impact.variable} ${display.variable} ${sans.variable} antialiased`}>
         {children}
       </body>
     </html>
