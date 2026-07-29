@@ -2,26 +2,41 @@ import { PageHero } from "@/components/layout/PageHero";
 import { BreadcrumbJsonLd, createMetadata } from "@/components/seo/metadata";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { RELEASE_INVESTMENT } from "@/lib/constants";
-import { formatCurrency } from "@/lib/utils";
 
 export const metadata = createMetadata({
   title: "For Filmmakers",
   description:
-    "How Silver Spring Studios partners with independent filmmakers on streaming releases: packaging investment, recoupment from receipts, and no upfront invoice.",
+    "How Silver Spring Studios partners with independent filmmakers on streaming releases: packaging invested per title, recoupment from receipts, and no upfront invoice.",
   path: "/filmmakers",
 });
 
-const investmentItems = [
+const packagingAreas = [
   {
-    label: "Poster design",
-    amount: RELEASE_INVESTMENT.posterDesign,
-    note: "Original key art and digital adaptations sized for streaming shelves and browse grids, as defined in the agreement.",
+    label: "Key art / poster",
+    note: "Original or adapted art sized for streaming browse grids and platform thumbnails — scoped to what the title needs.",
   },
   {
-    label: "Trailer editing and publicity",
-    amount: RELEASE_INVESTMENT.trailerAndPublicity,
-    note: "Trailer assembly, positioning support and coordinated publicity materials where appropriate.",
+    label: "Trailer & publicity support",
+    note: "Trailer assembly and related publicity materials where they fit the release — not a fixed kit for every film.",
+  },
+  {
+    label: "Positioning",
+    note: "Clear audience and genre framing before assets are built, so packaging matches how the film should sell online.",
+  },
+];
+
+const waterfallSteps = [
+  {
+    title: "Platform and direct costs",
+    body: "Fees and contractually defined expenses come out of receipts as written in the agreement.",
+  },
+  {
+    title: "Agreed packaging investment",
+    body: "What we invested in release packaging for that title is recouped from remaining film receipts — not billed to you upfront.",
+  },
+  {
+    title: "Shared remaining receipts",
+    body: "What is left is split between filmmaker and studio according to the signed agreement for that project.",
   },
 ];
 
@@ -49,12 +64,6 @@ const collaboration = [
 ];
 
 export default function FilmmakersPage() {
-  const exampleReceipts = 10_000;
-  const recouped = RELEASE_INVESTMENT.total;
-  const remaining = exampleReceipts - recouped;
-  const filmmakerShare = Math.round(remaining * (RELEASE_INVESTMENT.filmmakerSharePercent / 100));
-  const studioShare = remaining - filmmakerShare;
-
   return (
     <>
       <BreadcrumbJsonLd
@@ -67,53 +76,46 @@ export default function FilmmakersPage() {
       <PageHero
         eyebrow="Partnership"
         title="For filmmakers"
-        description="Finished a film and want it on streaming looking intentional — not dumped onto platforms with weak key art? We invest in packaging upfront and recover that from film receipts, not from an invoice before the first dollar is earned."
+        description="Finished a film and want it on streaming looking intentional — not dumped onto platforms with weak key art? We invest in packaging with you, recover that from film receipts, and never send an upfront release invoice for the agreed packaging work."
       />
 
       <Section tone="elevated">
         <SectionHeader
           eyebrow="The model"
           title="We package before platforms earn"
-          description="Selected films may receive professional poster and trailer support without an upfront charge to the filmmaker. The agreed release investment is recouped only from revenue the film generates on digital and streaming releases."
+          description="Selected films may receive professional packaging support without an upfront charge to the filmmaker. Scope, creative direction and budget are set per title — then written into the agreement."
         />
 
         <div className="grid gap-10 lg:grid-cols-2">
-          <div className="space-y-8">
-            <p className="text-base leading-relaxed text-slate">
-              For our standard offer, Silver Spring Studios may invest up to{" "}
-              {formatCurrency(RELEASE_INVESTMENT.total)} in release services—typically{" "}
-              {formatCurrency(RELEASE_INVESTMENT.posterDesign)} toward poster design and{" "}
-              {formatCurrency(RELEASE_INVESTMENT.trailerAndPublicity)} toward trailer editing and
-              publicity support. These figures describe the initial release investment, not a fee
-              billed to you personally.
+          <div className="space-y-6 text-base leading-relaxed text-slate">
+            <p>
+              Not every film needs the same poster, trailer or publicity depth. We talk through
+              what will actually help the title on streaming, agree the package with you, and treat
+              that as an investment in the release — not a menu of fixed public prices.
             </p>
-            <p className="text-base leading-relaxed text-slate">
-              After the agreed release investment is recouped from net receipts, distributable
-              receipts are typically split {RELEASE_INVESTMENT.filmmakerSharePercent}% to the
-              filmmaker and {RELEASE_INVESTMENT.studioSharePercent}% to Silver Spring Studios—subject
-              to the signed distribution agreement. We refer to these amounts as net receipts or
-              distributable receipts, not profit.
+            <p>
+              That agreed packaging investment is recouped from revenue the film generates. After
+              recoupment and other contract-defined deductions, remaining distributable receipts are
+              shared as specified in your signed agreement. We talk about net / distributable
+              receipts — never “profit.”
+            </p>
+            <p className="text-sm text-slate/80">
+              Acceptance, platform placement and revenue are never guaranteed. A title may never
+              generate enough receipts to recoup the agreed investment; you are not personally on
+              the hook for that packaging spend unless a separate written arrangement says so.
             </p>
           </div>
 
           <div className="border border-line-strong bg-surface p-8">
-            <p className="text-xs tracking-[0.18em] uppercase text-warm-metal">Standard investment</p>
+            <p className="credit text-signal">What packaging can include</p>
             <ul className="mt-6 space-y-6">
-              {investmentItems.map((item) => (
+              {packagingAreas.map((item) => (
                 <li key={item.label} className="border-t border-line pt-6 first:border-t-0 first:pt-0">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <p className="text-sm text-ivory">{item.label}</p>
-                    <p className="font-display text-xl text-warm-metal">{formatCurrency(item.amount)}</p>
-                  </div>
-                  <p className="mt-2 text-xs leading-relaxed text-slate">{item.note}</p>
+                  <p className="font-impact text-xl tracking-[0.03em] text-ivory">{item.label}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate">{item.note}</p>
                 </li>
               ))}
             </ul>
-            <div className="editorial-rule my-8" />
-            <div className="flex items-baseline justify-between">
-              <p className="text-sm uppercase tracking-[0.12em] text-silver">Total release investment</p>
-              <p className="font-display text-2xl text-ivory">{formatCurrency(RELEASE_INVESTMENT.total)}</p>
-            </div>
           </div>
         </div>
       </Section>
@@ -122,53 +124,23 @@ export default function FilmmakersPage() {
         <SectionHeader
           eyebrow="Waterfall"
           title="How recoupment works"
-          description="Illustrative example only. Actual deductions, territories, term and payment timing are defined in each signed agreement."
+          description="The sequence matters more than any public formula. Exact categories, caps and splits are defined only in each signed agreement."
         />
 
-        <div className="max-w-3xl border border-line-strong bg-surface p-8 md:p-10">
-          <p className="text-xs tracking-[0.18em] uppercase text-warm-metal">Illustrative example</p>
-          <p className="mt-4 font-display text-2xl text-ivory md:text-3xl">
-            Film generates {formatCurrency(exampleReceipts)} in net receipts
-          </p>
-
-          <ol className="mt-8 space-y-6">
-            <li className="flex gap-4 border-t border-line pt-6">
-              <span className="text-warm-metal">1</span>
+        <ol className="max-w-3xl space-y-0 border border-line-strong">
+          {waterfallSteps.map((step, i) => (
+            <li
+              key={step.title}
+              className="grid gap-4 border-b border-line p-6 last:border-b-0 md:grid-cols-[4rem_1fr] md:gap-8 md:p-8"
+            >
+              <p className="font-impact text-3xl text-signal">{String(i + 1).padStart(2, "0")}</p>
               <div>
-                <p className="text-sm text-ivory">
-                  {formatCurrency(recouped)} recoups the agreed Silver Spring release investment
-                </p>
+                <h3 className="font-impact text-2xl tracking-[0.03em] text-ivory">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{step.body}</p>
               </div>
             </li>
-            <li className="flex gap-4 border-t border-line pt-6">
-              <span className="text-warm-metal">2</span>
-              <div>
-                <p className="text-sm text-ivory">
-                  {formatCurrency(remaining)} remains in distributable receipts
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4 border-t border-line pt-6">
-              <span className="text-warm-metal">3</span>
-              <div className="space-y-2">
-                <p className="text-sm text-ivory">
-                  Filmmaker receives {RELEASE_INVESTMENT.filmmakerSharePercent}%:{" "}
-                  {formatCurrency(filmmakerShare)}
-                </p>
-                <p className="text-sm text-slate">
-                  Silver Spring Studios receives {RELEASE_INVESTMENT.studioSharePercent}%:{" "}
-                  {formatCurrency(studioShare)}
-                </p>
-              </div>
-            </li>
-          </ol>
-        </div>
-
-        <p className="mt-8 max-w-3xl text-sm leading-relaxed text-slate">
-          If a film never generates enough revenue to recoup the agreed release investment, the
-          filmmaker is not personally responsible for repaying that standard investment unless
-          separately agreed in writing. No revenue, recoupment or platform placement is guaranteed.
-        </p>
+          ))}
+        </ol>
       </Section>
 
       <Section tone="ivory">
@@ -199,7 +171,9 @@ export default function FilmmakersPage() {
             />
           </div>
           <div className="flex flex-wrap gap-4">
-            <ButtonLink href="/submit">Submit Your Film</ButtonLink>
+            <ButtonLink href="/submit" variant="signal">
+              Submit Your Film
+            </ButtonLink>
             <ButtonLink href="/how-it-works" variant="secondary">
               How It Works
             </ButtonLink>

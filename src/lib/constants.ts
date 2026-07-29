@@ -10,6 +10,7 @@ export const SITE = {
   twitter: process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? "",
 } as const;
 
+/** Internal planning defaults for admin tools only — never surface as public price list. */
 export const RELEASE_INVESTMENT = {
   posterDesign: 2000,
   trailerAndPublicity: 1500,

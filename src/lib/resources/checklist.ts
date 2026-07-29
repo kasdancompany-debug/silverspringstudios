@@ -184,7 +184,7 @@ export const CHECKLIST_SECTIONS: ChecklistSection[] = [
       "Document P&A commitments, personal guarantees, or festival fees still unpaid that create production-company pressure.",
       "Clarify who receives revenue payments under the proposed deal (production entity, LLC, individual filmmaker).",
       "Provide tax forms readiness (W-9, W-8BEN) for the payee entity before first accounting period closes.",
-      "Understand that distributor recoupment of release investment (e.g., $3,500 poster and trailer/publicity allocation) typically precedes filmmaker share of distributable receipts.",
+      "Understand that distributor recoupment of an agreed packaging investment typically precedes filmmaker share of distributable receipts — exact caps and splits are deal-specific.",
     ],
   },
   {

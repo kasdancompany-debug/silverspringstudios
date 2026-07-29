@@ -177,7 +177,7 @@ export const ARTICLES_B: Article[] = [
         id: "what-boutique-partners-add",
         heading: "What boutique partners try to add",
         paragraphs: [
-          "A selective distributor is not a better Filmhub. It is a different service layer. At Silver Spring Studios, accepted titles may receive up to $3,500 in release investment—poster design, trailer-oriented publicity support, and related positioning work—recouped from receipts before the standard 60/40 filmmaker/studio split on net receipts. No outcome is guaranteed.",
+          "A selective distributor is not a better Filmhub. It is a different service layer. At Silver Spring Studios, accepted titles may receive agreed packaging investment—poster design, trailer-oriented publicity support, and related positioning work—recouped from receipts before sharing remaining distributable receipts per the signed agreement. No outcome is guaranteed.",
           "That investment is a bet on the title, not a promise of performance. The practical value is curatorial packaging, hands-on release coordination, and a partner who treats the film as a slate item rather than one row in a bulk upload queue.",
           "Boutique partners also filter submissions. That selectivity is frustrating if you are declined; it is the point if you want a human acquisitions read before committing to a release strategy.",
         ],
@@ -340,7 +340,7 @@ export const ARTICLES_B: Article[] = [
         id: "recoupment-and-release-investment",
         heading: "Recoupment and the release investment line",
         paragraphs: [
-          "On Silver Spring's standard model, up to $3,500 in release investment—poster and trailer-oriented publicity support—is recouped from net receipts before the 60/40 filmmaker split on distributable receipts. That investment is not a filmmaker invoice; it is recouped only from money the film earns.",
+          "On Silver Spring's model, agreed packaging investment—poster and trailer-oriented publicity support scoped per title—is recouped from net receipts before filmmaker/studio sharing of distributable receipts per agreement. That investment is not a filmmaker invoice; it is recouped only from money the film earns.",
           "If net receipts never cross the recoupment threshold, the filmmaker is not personally on the hook for that standard amount unless a separate written obligation says otherwise. The studio accepted commercial risk.",
           "Still, you should ask what recoupment means in your specific agreement: which expenses count, in what order, and whether interest or cross-collateralization applies.",
         ],

@@ -3,8 +3,6 @@ import { BreadcrumbJsonLd, createMetadata } from "@/components/seo/metadata";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { FoundingSlateSignup } from "@/components/approach/FoundingSlateSignup";
-import { RELEASE_INVESTMENT } from "@/lib/constants";
-import { formatCurrency } from "@/lib/utils";
 
 export const metadata = createMetadata({
   title: "Our Approach",
@@ -80,13 +78,6 @@ const publishCommitments = [
 ];
 
 export default function OurApproachPage() {
-  const exampleReceipts = 10_000;
-  const remaining = exampleReceipts - RELEASE_INVESTMENT.total;
-  const filmmakerShare = Math.round(
-    remaining * (RELEASE_INVESTMENT.filmmakerSharePercent / 100),
-  );
-  const studioShare = remaining - filmmakerShare;
-
   return (
     <>
       <BreadcrumbJsonLd
@@ -240,66 +231,49 @@ export default function OurApproachPage() {
           light
           eyebrow="Economics"
           title="A transparent way to think about revenue"
-          description="We would rather a filmmaker understand the structure fully before signing than discover it later in a statement. The figures below are illustrative, not a promise of what any specific film will earn."
+          description="We would rather a filmmaker understand the structure before signing than discover it later in a statement. Exact spend, caps and splits are set per title — never as a public price list."
         />
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="space-y-5 text-[0.95rem] leading-[1.75] text-ink/70">
             <p>
-              For our standard offer, Silver Spring Studios may invest up to{" "}
-              {formatCurrency(RELEASE_INVESTMENT.total)} in release preparation—typically{" "}
-              {formatCurrency(RELEASE_INVESTMENT.posterDesign)} toward poster design and{" "}
-              {formatCurrency(RELEASE_INVESTMENT.trailerAndPublicity)} toward trailer editing and
-              publicity support. This is an investment we make, not a fee invoiced to the
-              filmmaker personally.
+              For selected titles, Silver Spring Studios may invest in release packaging — key art,
+              trailer support and related positioning — at a level agreed with the filmmaker for
+              that film. This is an investment we make, not a fee invoiced to you personally.
             </p>
             <p>
-              That release investment is recouped from the film&apos;s own receipts before any
-              further split occurs. Once recouped, distributable receipts are typically shared{" "}
-              {RELEASE_INVESTMENT.filmmakerSharePercent}% to the filmmaker and{" "}
-              {RELEASE_INVESTMENT.studioSharePercent}% to Silver Spring Studios—always subject to
-              the signed distribution agreement, which governs the actual terms, territories and
-              reporting cadence for a given film.
+              That packaging investment is recouped from the film&apos;s own receipts before
+              further sharing. Once recouped, remaining distributable receipts are shared as
+              written in the signed agreement — which also governs territories, reporting and any
+              other deductions.
             </p>
             <p className="text-ink/55">
               We use the terms &ldquo;net receipts&rdquo; and &ldquo;distributable receipts&rdquo;
               deliberately, and never &ldquo;profit.&rdquo; No revenue, recoupment or platform
               placement is guaranteed, and a title may never generate enough receipts to recoup
-              the agreed release investment.
+              the agreed packaging investment.
             </p>
           </div>
 
           <div className="border border-line-ink-strong bg-ivory p-8">
-            <p className="text-xs tracking-[0.18em] uppercase text-forest">
-              Illustrative example only · Not a forecast
-            </p>
-            <p className="mt-4 font-display text-2xl text-ink md:text-3xl">
-              A film generates {formatCurrency(exampleReceipts)} in net receipts
-            </p>
-            <ol className="mt-8 space-y-6">
+            <p className="text-xs tracking-[0.18em] uppercase text-forest">Sequence · Not a forecast</p>
+            <ol className="mt-6 space-y-6">
               <li className="flex gap-4 border-t border-ink/10 pt-6">
-                <span className="text-forest">1</span>
+                <span className="font-impact text-2xl text-forest">01</span>
                 <p className="text-sm text-ink/80">
-                  {formatCurrency(RELEASE_INVESTMENT.total)} recoups the agreed release investment
+                  Agree packaging scope and investment for this title with the filmmaker.
                 </p>
               </li>
               <li className="flex gap-4 border-t border-ink/10 pt-6">
-                <span className="text-forest">2</span>
+                <span className="font-impact text-2xl text-forest">02</span>
                 <p className="text-sm text-ink/80">
-                  {formatCurrency(remaining)} remains as distributable receipts
+                  Recoup that agreed investment from film receipts after contract-defined costs.
                 </p>
               </li>
               <li className="flex gap-4 border-t border-ink/10 pt-6">
-                <span className="text-forest">3</span>
-                <div className="space-y-2">
-                  <p className="text-sm text-ink/80">
-                    Filmmaker receives {RELEASE_INVESTMENT.filmmakerSharePercent}%:{" "}
-                    {formatCurrency(filmmakerShare)}
-                  </p>
-                  <p className="text-sm text-ink/60">
-                    Silver Spring Studios receives {RELEASE_INVESTMENT.studioSharePercent}%:{" "}
-                    {formatCurrency(studioShare)}
-                  </p>
-                </div>
+                <span className="font-impact text-2xl text-forest">03</span>
+                <p className="text-sm text-ink/80">
+                  Share remaining distributable receipts as written in the signed agreement.
+                </p>
               </li>
             </ol>
           </div>
