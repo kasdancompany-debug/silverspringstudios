@@ -3,10 +3,10 @@ export const SITE = {
   tagline: "Independent Film Distribution",
   description:
     "Silver Spring Studios is an independent film distributor with a personal approach to packaging and releasing completed films for digital and streaming platforms.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://silverspringstudios.example",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "acquisitions@silverspringstudios.example",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://silverspringstudios.vercel.app",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "silverspringfilms@gmail.com",
   adminEmail:
-    process.env.ADMIN_NOTIFICATION_EMAIL ?? "acquisitions@silverspringstudios.example",
+    process.env.ADMIN_NOTIFICATION_EMAIL ?? "silverspringfilms@gmail.com",
   twitter: process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? "",
 } as const;
 

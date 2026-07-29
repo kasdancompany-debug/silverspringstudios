@@ -114,25 +114,27 @@ export function adminSubmissionNotificationEmail({
   genre: string;
   email: string;
 }): EmailContent {
+  const adminUrl = `${SITE.url.replace(/\/$/, "")}/admin/submissions`;
   const subject = `New submission: ${filmTitle} (${referenceNumber})`;
 
   const html = emailLayout(`
     ${paragraph("A new film submission has been received.")}
     ${referenceBlock(referenceNumber)}
     ${paragraph(`<strong>Title:</strong> ${filmTitle}<br /><strong>Genre:</strong> ${genre}<br /><strong>Filmmaker:</strong> ${filmmakerName}<br /><strong>Email:</strong> <a href="mailto:${email}" style="color:${accentColor};text-decoration:none;">${email}</a>`)}
-    ${paragraph("Review the submission in the admin dashboard when you are ready.")}
+    ${paragraph(`<a href="${adminUrl}" style="color:${accentColor};">Open the submissions desk →</a>`)}
   `);
 
   const text = [
     "A new film submission has been received.",
     "",
     `Reference: ${referenceNumber}`,
+    "",
     `Title: ${filmTitle}`,
     `Genre: ${genre}`,
     `Filmmaker: ${filmmakerName}`,
     `Email: ${email}`,
     "",
-    "Review the submission in the admin dashboard when you are ready.",
+    `Review: ${adminUrl}`,
   ].join("\n");
 
   return { subject, html, text };
