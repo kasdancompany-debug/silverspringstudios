@@ -25,7 +25,7 @@ const sans = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Silver Spring Studios | Independent Film Distribution",
+    default: "Silver Spring Studios | Streaming Film Distribution",
     template: "%s | Silver Spring Studios",
   },
   description: SITE.description,

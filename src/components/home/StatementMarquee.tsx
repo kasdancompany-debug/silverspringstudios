@@ -1,10 +1,10 @@
 const STATEMENTS = [
+  "Streaming & digital releases",
+  "Poster + trailer packaging invested",
   "No upfront release invoice",
-  "Investment recouped from film receipts",
+  "Recouped from film receipts",
   "Selective partnerships",
-  "Transparent economics",
-  "Completed features",
-  "Founding slate in progress",
+  "Platform look that matches the film",
 ];
 
 export function StatementMarquee() {

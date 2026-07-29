@@ -2,10 +2,10 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { STUDIO_ADVISOR } from "@/lib/studio-advisor";
 
 const COMMITMENTS = [
-  "No invented catalogue",
+  "Streaming & digital focus — not theatrical",
+  "Packaging that matches the film",
   "Economics stated before you sign",
-  "Selective review — not volume theatre",
-  "Publish real milestones as they happen",
+  "No invented catalogue or placements",
 ] as const;
 
 export function TrustBand() {
@@ -25,12 +25,12 @@ export function TrustBand() {
           <h2 className="mt-4 font-impact text-[clamp(2.5rem,7vw,4.25rem)] leading-[0.92] text-ivory">
             New company.
             <br />
-            Old-school honesty.
+            Clear offer.
           </h2>
           <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-slate">
-            Silver Spring Studios is building a founding slate — title by title. We will not invent
-            films, testimonials or placements to look bigger than we are. That restraint is the
-            brand.
+            We are building a founding slate of digital releases — not a theatrical slate, not a
+            fake catalogue. Early partners get direct access, invested packaging and transparent
+            economics. We publish what is actually true as we go.
           </p>
 
           <div className="mt-10 border border-line bg-surface/80 p-6 md:p-8">

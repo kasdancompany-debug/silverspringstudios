@@ -17,7 +17,9 @@ export const STUDIO_ADVISOR = {
   responseAimLabel: "We aim to respond within 14 days",
   deskLabel: "Acquisitions desk",
   deskBlurb:
-    "Submissions are reviewed by people who can actually reply — not a black-hole portal. Selective by design.",
-  /** Hot pink Neon signal stays — distinctive, fun, high-energy. */
-  accent: "neon-pink",
+    "We review completed features for digital and streaming release — packaging first, platforms second, no theatrical fantasy.",
+  positioning: {
+    channel: "streaming and digital platforms",
+    promise: "A finished film should look intentional on the platforms where people actually watch.",
+  },
 } as const;

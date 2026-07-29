@@ -7,7 +7,7 @@ import { STUDIO_ADVISOR } from "@/lib/studio-advisor";
 export const metadata = createMetadata({
   title: "How It Works",
   description:
-    "From first submission to signed release: how Silver Spring Studios evaluates completed independent films and prepares selective distribution partnerships.",
+    "From submission to signed digital release: how Silver Spring Studios evaluates completed independent films for streaming partnerships.",
   path: "/how-it-works",
 });
 
@@ -53,7 +53,7 @@ const afterSigning = [
   },
   {
     title: "Distribution and reporting",
-    body: "We pursue licensing and release opportunities appropriate to the film. Revenue, deductions and recoupment are reported according to the signed agreement. Platform placement and earnings are never guaranteed.",
+    body: "We pursue licensing and digital/streaming opportunities appropriate to the film. Revenue, deductions and recoupment are reported according to the signed agreement. Platform placement and earnings are never guaranteed.",
   },
   {
     title: "Recoupment and receipts",

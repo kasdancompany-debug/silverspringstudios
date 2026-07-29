@@ -40,11 +40,12 @@ export function Footer() {
           <div className="max-w-md space-y-8">
             <Wordmark size="md" />
             <p className="font-display text-2xl leading-snug text-ivory md:text-3xl">
-              Independent films deserve a real release.
+              Streaming releases with real packaging.
             </p>
             <p className="text-sm leading-relaxed text-slate">
-              Boutique distribution for completed features — selective partnerships, invested
-              packaging, and transparent economics. No invented catalogue. Building title by title.
+              Selective digital distribution for completed features — poster and trailer support
+              invested upfront, recovered from film receipts. No theatrical model. No invented
+              catalogue.
             </p>
             <a
               href={`mailto:${SITE.email}`}

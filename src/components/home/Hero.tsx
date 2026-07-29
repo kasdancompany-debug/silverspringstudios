@@ -39,7 +39,7 @@ export function Hero() {
           transition={{ duration: 0.85, ease, delay: 0.15 }}
           className="max-w-6xl"
         >
-          <p className="credit text-signal">Independent Film Distribution</p>
+          <p className="credit text-signal">Digital & Streaming Distribution</p>
 
           <h1 className="mt-3 font-impact text-[clamp(4.5rem,18vw,12rem)] leading-[0.8] tracking-[0.01em] text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.65)]">
             Silver
@@ -51,13 +51,13 @@ export function Hero() {
           </p>
 
           <p className="mt-7 max-w-xl font-display text-[1.75rem] leading-[1.12] text-white md:text-3xl lg:text-[2.5rem]">
-            Independent films deserve a{" "}
-            <em className="not-italic text-signal">real release.</em>
+            Streaming releases with{" "}
+            <em className="not-italic text-signal">real packaging.</em>
           </p>
 
           <p className="mt-5 max-w-md text-sm leading-relaxed text-silver md:text-[0.95rem]">
-            Boutique distribution for completed features — invested packaging, transparent
-            economics, selective partnerships.
+            We help finished independent films look and feel intentional on streaming — poster,
+            trailer and positioning invested upfront, recovered from film receipts.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

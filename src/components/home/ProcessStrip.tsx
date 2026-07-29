@@ -41,8 +41,8 @@ export function ProcessStrip() {
               No black hole.
             </h2>
             <p className="mt-5 max-w-lg text-[0.95rem] leading-relaxed text-slate">
-              Selective at every stage. Submission never creates a deal. A release begins only when
-              both sides sign.
+            Selective at every stage. Submission never creates a deal. We prepare streaming and
+            digital releases — a signed agreement is the only start line.
             </p>
           </div>
           <ButtonLink href="/how-it-works" variant="secondary" className="shrink-0 self-start">

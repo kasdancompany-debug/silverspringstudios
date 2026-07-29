@@ -9,7 +9,7 @@ import { formatCurrency } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "Our Approach",
   description:
-    "How a new, boutique distributor works: selective acquisition, a real release-planning method, and transparent economics — presented honestly, without a manufactured track record.",
+    "How a new digital distributor works: selective acquisition, streaming-ready packaging, and transparent economics — presented honestly, without a manufactured track record.",
   path: "/our-approach",
 });
 
@@ -98,8 +98,8 @@ export default function OurApproachPage() {
 
       <PageHero
         eyebrow="Our Approach"
-        title="A new distributor, built on a method—not a back catalogue"
-        description="Silver Spring Studios is a young company. We don't have a decade of releases to point to, and we won't pretend otherwise. What we have is a clear method for how completed independent films should be packaged, positioned and released—and the attention that comes from working with a small, deliberately selective slate."
+        title="Digital releases, packaged with intent"
+        description="Silver Spring Studios is a young company. We don't have a decade of titles to point to, and we won't pretend otherwise. What we have is a clear offer: selective streaming and digital releases with poster, trailer and positioning treated as part of the job — not an afterthought upload."
       />
 
       <Section tone="elevated">
@@ -107,23 +107,21 @@ export default function OurApproachPage() {
           <div>
             <SectionHeader
               eyebrow="Why we exist"
-              title="Completed films still get undersold"
-              description="We started Silver Spring Studios because too many finished, capable independent films still reach an audience through weak key art, a rushed trailer and no real positioning strategy—not because the film failed, but because the release did."
+              title="Finished films still look unfinished online"
+              description="Too many capable independent films reach streaming with weak key art, a rushed trailer and no clear positioning — not because the film failed, but because the packaging did."
             />
             <div className="space-y-5 text-base leading-relaxed text-slate">
               <p>
-                A finished film represents months or years of work. It deserves a release that
-                reflects that effort: a poster that stops a scroll, a trailer that represents the
-                film honestly and well, and a distributor who can articulate exactly who the film
-                is for before spending a dollar trying to reach them.
+                On platforms, the poster and trailer often decide whether anyone presses play. We
+                built Silver Spring Studios to invest in that packaging for selected titles — then
+                recover the cost from the film&apos;s own receipts, not from an upfront invoice to
+                the filmmaker.
               </p>
               <p>
-                Too often, independent filmmakers are offered one of two things: a large aggregator
-                that uploads a film into a queue with no real campaign behind it, or a boutique
-                deal that asks the filmmaker to pay an upfront fee for marketing services with no
-                guarantee of outcome. We built Silver Spring Studios to occupy a different space—an
-                investment in the release, recouped from the film&apos;s own receipts, paired with the
-                kind of packaging attention a small slate makes possible.
+                Filmmakers are often offered a self-serve upload with no campaign, or a boutique
+                deal that asks them to pay for marketing upfront. We occupy a different space:
+                selective digital distribution, invested packaging, transparent recoupment, and
+                honest limits about what streaming can and cannot promise.
               </p>
             </div>
           </div>
@@ -152,9 +150,9 @@ export default function OurApproachPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core belief</dt>
-                <dd className="mt-2 font-display text-xl text-warm-metal">
-                  Independent films deserve a real release.
+                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core offer</dt>
+                <dd className="mt-2 font-display text-xl text-signal">
+                  Streaming releases with real packaging.
                 </dd>
               </div>
             </dl>

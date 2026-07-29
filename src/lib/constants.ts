@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Silver Spring Studios",
-  tagline: "Independent films deserve a real release.",
+  tagline: "Streaming releases with real packaging.",
   description:
-    "Silver Spring Studios partners with independent filmmakers to package, position and distribute completed films without requiring an upfront release fee.",
+    "Silver Spring Studios partners with independent filmmakers to package and release completed films for streaming and digital platforms — poster, trailer and positioning included — without an upfront release invoice.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://silverspringstudios.example",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "acquisitions@silverspringstudios.example",
   adminEmail:

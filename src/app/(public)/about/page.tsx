@@ -7,7 +7,7 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "Silver Spring Studios is a boutique independent film distributor focused on selective partnerships with filmmakers across Canada, the United States and English-language cinema.",
+    "Silver Spring Studios is a boutique digital distributor — packaging and releasing completed independent films for streaming platforms across Canada, the United States and English-language markets.",
   path: "/about",
 });
 
@@ -17,8 +17,8 @@ const principles = [
     body: "We review completed work carefully and speak directly with filmmakers when a project merits conversation. Access does not mean automatic acceptance—but it does mean a human process.",
   },
   {
-    title: "Release is a craft",
-    body: "Positioning, key art, trailer editing, metadata and publicity are part of how independent films find audiences. We treat those elements as seriously as acquisition.",
+    title: "Packaging is the product",
+    body: "On streaming, the poster and trailer are often the first and only chance a title gets. We treat key art, trailer edit and positioning as core release work — not an afterthought upload.",
   },
   {
     title: "Transparent economics",
@@ -26,7 +26,7 @@ const principles = [
   },
   {
     title: "Honest scope",
-    body: "We do not promise platforms we cannot deliver, revenue we cannot predict or acceptance we cannot extend. Our reputation depends on restraint as much as ambition.",
+    body: "We do digital and streaming releases. We do not promise theatrical runs, homepage placement we cannot deliver, or revenue we cannot predict.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Company"
         title="About Silver Spring Studios"
-        description="A boutique independent distribution and release partner for filmmakers who have finished distinctive work and want more than a upload-and-hope approach."
+        description="A selective digital distribution partner for filmmakers who have finished a film and want it packaged properly for streaming — not dumped into a queue looking unfinished."
       />
 
       <Section tone="elevated">
@@ -51,27 +51,25 @@ export default function AboutPage() {
           <div>
             <SectionHeader
               eyebrow="Our story"
-              title="Built for films that deserve a real release"
-              description="Silver Spring Studios began with a straightforward observation: many strong independent films finish production with nowhere to go—or with distribution options that ask filmmakers to finance marketing they cannot afford."
+              title="Built for streaming releases that look intentional"
+              description="Silver Spring Studios started from a practical problem: many strong independent films finish production and then land on platforms with weak key art, thin trailers and no clear positioning — or get asked to finance marketing they cannot afford."
             />
             <div className="space-y-5 text-base leading-relaxed text-slate">
               <p>
-                We started Silver Spring Studios to occupy a narrower space: selective partnerships
-                with completed feature films, documentaries and limited series where professional
-                release preparation can meaningfully change outcomes. Not every film needs the same
-                campaign. Not every filmmaker wants the same deal. But every filmmaker deserves clarity.
+                We occupy a narrow space: selective partnerships with completed features,
+                documentaries and limited series for digital and streaming release. We invest in
+                packaging — poster and trailer/publicity support — and recover that investment from
+                film receipts, not from an upfront invoice to the filmmaker.
               </p>
               <p>
                 Our focus is Canada, the United States and English-language international work with
-                clear subtitle and rights pathways. We are small by design—large enough to prepare
-                releases thoughtfully, small enough that submissions are read by people who can
-                actually respond.
+                clear subtitle and rights pathways. We are small by design — large enough to prepare
+                releases carefully, small enough that submissions are read by people who can respond.
               </p>
               <p>
-                We are not a volume aggregator, a festival brand extension or a platform middleman
-                pretending to be a distributor. We are an acquisitions-led release partner interested
-                in long-term relationships with filmmakers who value craft, audience and honest
-                conversation.
+                We are not a theatrical distributor, a volume aggregator or a festival brand
+                extension. We are an acquisitions-led digital release partner for filmmakers who
+                value clarity, packaging craft and honest expectations.
               </p>
             </div>
           </div>
@@ -81,7 +79,7 @@ export default function AboutPage() {
             <dl className="mt-8 space-y-6">
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Focus</dt>
-                <dd className="mt-2 text-sm text-ivory">Independent feature films, documentaries, limited series</dd>
+                <dd className="mt-2 text-sm text-ivory">Streaming & digital release for completed features, docs, limited series</dd>
               </div>
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Territories</dt>
@@ -89,12 +87,12 @@ export default function AboutPage() {
               </div>
               <div>
                 <dt className="text-xs tracking-[0.12em] uppercase text-slate">Approach</dt>
-                <dd className="mt-2 text-sm text-ivory">Selective partnerships with invested release support</dd>
+                <dd className="mt-2 text-sm text-ivory">Selective partnerships with invested packaging support</dd>
               </div>
               <div>
-                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core belief</dt>
+                <dt className="text-xs tracking-[0.12em] uppercase text-slate">Core offer</dt>
                 <dd className="mt-2 font-display text-xl text-signal">
-                  Independent films deserve a real release.
+                  Streaming releases with real packaging.
                 </dd>
               </div>
             </dl>

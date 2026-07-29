@@ -8,7 +8,7 @@ import { formatCurrency } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "For Filmmakers",
   description:
-    "How Silver Spring Studios partners with independent filmmakers: release investment, recoupment from receipts, and collaborative distribution without an upfront invoice.",
+    "How Silver Spring Studios partners with independent filmmakers on streaming releases: packaging investment, recoupment from receipts, and no upfront invoice.",
   path: "/filmmakers",
 });
 
@@ -16,7 +16,7 @@ const investmentItems = [
   {
     label: "Poster design",
     amount: RELEASE_INVESTMENT.posterDesign,
-    note: "Original key art and adaptation for digital and print use, as defined in the agreement.",
+    note: "Original key art and digital adaptations sized for streaming shelves and browse grids, as defined in the agreement.",
   },
   {
     label: "Trailer editing and publicity",
@@ -67,14 +67,14 @@ export default function FilmmakersPage() {
       <PageHero
         eyebrow="Partnership"
         title="For filmmakers"
-        description="We built Silver Spring Studios for filmmakers who have finished a serious independent work and want a distribution partner willing to invest in the release—not send an invoice before the first dollar is earned."
+        description="Finished a film and want it on streaming looking intentional — not dumped onto platforms with weak key art? We invest in packaging upfront and recover that from film receipts, not from an invoice before the first dollar is earned."
       />
 
       <Section tone="elevated">
         <SectionHeader
           eyebrow="The model"
-          title="We invest before we earn"
-          description="Selected films may receive professional release preparation without an upfront charge to the filmmaker. The agreed release investment is recouped only from revenue the film generates."
+          title="We package before platforms earn"
+          description="Selected films may receive professional poster and trailer support without an upfront charge to the filmmaker. The agreed release investment is recouped only from revenue the film generates on digital and streaming releases."
         />
 
         <div className="grid gap-10 lg:grid-cols-2">

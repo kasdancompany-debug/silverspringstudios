@@ -31,7 +31,9 @@ export function ModelSection() {
             <p className="mt-3 font-impact text-6xl text-ivory md:text-8xl">
               {formatCurrency(RELEASE_INVESTMENT.total)}
             </p>
-            <p className="mt-2 text-sm text-silver">Release investment · recouped from film receipts</p>
+            <p className="mt-2 text-sm text-silver">
+              Packaging investment · recouped from streaming / digital receipts
+            </p>
           </div>
         </div>
 
@@ -44,15 +46,16 @@ export function ModelSection() {
         >
           <p className="credit text-signal">The Model</p>
           <h2 className="mt-4 font-impact text-[clamp(2.75rem,6vw,4.75rem)] leading-[0.9] text-ivory">
-            Invested release.
+            Packaged for
             <br />
-            <span className="text-signal">Shared receipts.</span>
+            <span className="text-signal">streaming.</span>
           </h2>
           <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-slate">
-            For selected titles we fund poster design and trailer/publicity support, then recover
-            that investment only from revenue the film generates. After recoupment, remaining
-            distributable receipts typically split {RELEASE_INVESTMENT.filmmakerSharePercent}%
-            filmmaker / {RELEASE_INVESTMENT.studioSharePercent}% studio.
+            For selected titles we fund poster design and trailer/publicity support so the film
+            looks intentional on digital shelves — then recover that investment only from revenue
+            the film generates. After recoupment, remaining distributable receipts typically split{" "}
+            {RELEASE_INVESTMENT.filmmakerSharePercent}% filmmaker /{" "}
+            {RELEASE_INVESTMENT.studioSharePercent}% studio.
           </p>
 
           <div className="mt-10 grid grid-cols-2 gap-6 border-t border-line pt-8">

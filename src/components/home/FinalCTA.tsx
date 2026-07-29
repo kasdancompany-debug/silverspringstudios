@@ -29,13 +29,13 @@ export function FinalCTA() {
         >
           <p className="credit text-signal">Next Frame</p>
           <h2 className="mt-5 font-impact text-[clamp(3rem,10vw,6.5rem)] leading-[0.88] tracking-[0.01em] text-ivory">
-            Share your
+            Ready for a
             <br />
-            <span className="text-signal">completed film.</span>
+            <span className="text-signal">streaming release?</span>
           </h2>
           <p className="mt-6 max-w-lg text-[0.95rem] leading-relaxed text-silver">
             Finished feature, documentary or limited series — clear rights, private screener.
-            Review is selective. Submission does not guarantee acceptance.
+            Selective review. Submission does not guarantee acceptance or platform placement.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <ButtonLink href="/submit" variant="signal" size="lg">
