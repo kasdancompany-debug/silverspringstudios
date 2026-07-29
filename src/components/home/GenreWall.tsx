@@ -23,62 +23,75 @@ const GENRE_POSTERS = [
   { label: "Experimental", image: "/brand/genre-experimental.jpg" },
 ] as const;
 
-/** Indie Rights–style genre rail — drag, arrows, no native scrollbar chrome. */
+/** Transform-based rail — no overflow scroll, so no native scrollbar chrome. */
 export function GenreWall() {
   const reduceMotion = useReducedMotion();
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef<{ active: boolean; startX: number; scrollLeft: number }>({
-    active: false,
-    startX: 0,
-    scrollLeft: 0,
-  });
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{
+    active: boolean;
+    startX: number;
+    origin: number;
+    moved: boolean;
+  }>({ active: false, startX: 0, origin: 0, moved: false });
+
+  const [offset, setOffset] = useState(0);
+  const [maxOffset, setMaxOffset] = useState(0);
   const [dragging, setDragging] = useState(false);
 
-  const updateEdges = useCallback(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setCanPrev(el.scrollLeft > 8);
-    setCanNext(el.scrollLeft < max - 8);
+  const measure = useCallback(() => {
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track) return;
+    const nextMax = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    setMaxOffset(nextMax);
+    setOffset((prev) => Math.min(Math.max(0, prev), nextMax));
   }, []);
 
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    updateEdges();
-    el.addEventListener("scroll", updateEdges, { passive: true });
-    const ro = new ResizeObserver(updateEdges);
-    ro.observe(el);
+    measure();
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track) return;
+    const ro = new ResizeObserver(measure);
+    ro.observe(viewport);
+    ro.observe(track);
+    window.addEventListener("resize", measure);
     return () => {
-      el.removeEventListener("scroll", updateEdges);
       ro.disconnect();
+      window.removeEventListener("resize", measure);
     };
-  }, [updateEdges]);
+  }, [measure]);
 
-  const scrollByPage = (dir: -1 | 1) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const amount = Math.min(el.clientWidth * 0.72, 520);
-    el.scrollBy({ left: dir * amount, behavior: reduceMotion ? "auto" : "smooth" });
+  const clamp = useCallback(
+    (value: number) => Math.min(Math.max(0, value), maxOffset),
+    [maxOffset],
+  );
+
+  const step = (dir: -1 | 1) => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const amount = Math.min(viewport.clientWidth * 0.72, 520);
+    setOffset((prev) => clamp(prev + dir * amount));
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType === "touch") return;
-    const el = scrollerRef.current;
-    if (!el) return;
-    dragRef.current = { active: true, startX: e.clientX, scrollLeft: el.scrollLeft };
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    dragRef.current = {
+      active: true,
+      startX: e.clientX,
+      origin: offset,
+      moved: false,
+    };
     setDragging(true);
-    el.setPointerCapture(e.pointerId);
+    e.currentTarget.setPointerCapture(e.pointerId);
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!dragRef.current.active) return;
-    const el = scrollerRef.current;
-    if (!el) return;
     const dx = e.clientX - dragRef.current.startX;
-    el.scrollLeft = dragRef.current.scrollLeft - dx;
+    if (Math.abs(dx) > 4) dragRef.current.moved = true;
+    setOffset(clamp(dragRef.current.origin - dx));
   };
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -86,11 +99,23 @@ export function GenreWall() {
     dragRef.current.active = false;
     setDragging(false);
     try {
-      scrollerRef.current?.releasePointerCapture(e.pointerId);
+      e.currentTarget.releasePointerCapture(e.pointerId);
     } catch {
       /* already released */
     }
   };
+
+  const onWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (maxOffset <= 0) return;
+    const mostlyHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+    const delta = mostlyHorizontal ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) < 1) return;
+    e.preventDefault();
+    setOffset((prev) => clamp(prev + delta));
+  };
+
+  const canPrev = offset > 2;
+  const canNext = offset < maxOffset - 2;
 
   return (
     <section className="relative overflow-hidden bg-void py-16 md:py-24">
@@ -116,7 +141,7 @@ export function GenreWall() {
             type="button"
             aria-label="Scroll genres left"
             disabled={!canPrev}
-            onClick={() => scrollByPage(-1)}
+            onClick={() => step(-1)}
             className={cn(
               "flex h-11 w-11 items-center justify-center border border-line-strong bg-void/80 text-ivory transition-colors",
               "hover:border-signal hover:text-signal disabled:cursor-not-allowed disabled:opacity-30",
@@ -128,7 +153,7 @@ export function GenreWall() {
             type="button"
             aria-label="Scroll genres right"
             disabled={!canNext}
-            onClick={() => scrollByPage(1)}
+            onClick={() => step(1)}
             className={cn(
               "flex h-11 w-11 items-center justify-center border border-line-strong bg-void/80 text-ivory transition-colors",
               "hover:border-signal hover:text-signal disabled:cursor-not-allowed disabled:opacity-30",
@@ -156,49 +181,60 @@ export function GenreWall() {
         />
 
         <div
-          ref={scrollerRef}
-          role="list"
+          ref={viewportRef}
+          role="region"
           aria-label="Genres we focus on"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerCancel={endDrag}
+          onWheel={onWheel}
           className={cn(
-            "genre-rail flex gap-3 overflow-x-auto px-4 md:gap-4 md:px-8 lg:px-10",
-            "scroll-smooth snap-x snap-mandatory",
+            "overflow-hidden px-4 touch-pan-y md:px-8 lg:px-10",
             dragging ? "cursor-grabbing select-none" : "cursor-grab",
           )}
         >
-          {GENRE_POSTERS.map((genre, i) => (
-            <motion.article
-              key={genre.label}
-              role="listitem"
-              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.5,
-                delay: reduceMotion ? 0 : Math.min(i, 8) * 0.04,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="group relative aspect-[2/3] w-[62vw] max-w-[240px] shrink-0 snap-start overflow-hidden sm:w-[38vw] md:w-[26vw] lg:w-[15vw] lg:max-w-[220px]"
-            >
-              <Image
-                src={genre.image}
-                alt=""
-                fill
-                sizes="(max-width:768px) 62vw, 15vw"
-                draggable={false}
-                className="pointer-events-none object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div aria-hidden className="poster-scrim absolute inset-0" />
-              <div className="absolute inset-x-0 bottom-0 p-5">
-                <h3 className="font-impact text-2xl tracking-[0.04em] text-white md:text-3xl">
-                  {genre.label}
-                </h3>
-              </div>
-            </motion.article>
-          ))}
+          <div
+            ref={trackRef}
+            role="list"
+            style={{
+              transform: `translate3d(-${offset}px, 0, 0)`,
+              transition:
+                dragging || reduceMotion ? "none" : "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+            className="flex w-max gap-3 will-change-transform md:gap-4"
+          >
+            {GENRE_POSTERS.map((genre, i) => (
+              <motion.article
+                key={genre.label}
+                role="listitem"
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: reduceMotion ? 0 : Math.min(i, 8) * 0.04,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group relative aspect-[2/3] w-[62vw] max-w-[240px] shrink-0 overflow-hidden sm:w-[38vw] md:w-[26vw] lg:w-[15vw] lg:max-w-[220px]"
+              >
+                <Image
+                  src={genre.image}
+                  alt=""
+                  fill
+                  sizes="(max-width:768px) 62vw, 15vw"
+                  draggable={false}
+                  className="pointer-events-none object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div aria-hidden className="poster-scrim absolute inset-0" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <h3 className="font-impact text-2xl tracking-[0.04em] text-white md:text-3xl">
+                    {genre.label}
+                  </h3>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
